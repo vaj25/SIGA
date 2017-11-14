@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>SIGA</title>
+
+<head>
+  <title>SIGA</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 
-  <body>
+<body>
+
+  <% if user_signed_in? %>
+    <%= render "partials/navigation"%>
+  <% end %>
+
+  <p class="notice">
+    <%= notice %>
+  </p>
+  <p class="alert">
+    <%= alert %>
+  </p>
+  <div class="container">
     <%= yield %>
-  </body>
+  </div>
+  <footer>Footer</footer>
+
+</body>
+
 </html>
