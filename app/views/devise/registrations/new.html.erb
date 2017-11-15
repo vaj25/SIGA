@@ -1,12 +1,27 @@
 <div class="ui raised very padded text container segment">
   <h2 class="ui header">Registrate</h2>
-  <div class="ui form">
+  <div class="ui tiny form">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
 
       <div class="field">
+        <%= f.label :nombre %><br />
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :apellido %><br />
+        <%= f.text_field :lastname, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :nombre_de_usuario %><br />
+        <%= f.text_field :username, autofocus: true %>
+      </div>
+
+      <div class="field">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
+        <%= f.email_field :email %>
       </div>
 
       <div class="field">
@@ -22,11 +37,40 @@
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
 
+      <!-- <div class="ui form">
+        <div class="grouped fields">
+          <label>Rol</label>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <%# <%= f.radio_button :administrator_rol, '1', class="hidden"%> %>
+              <label>Administrador</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <%# <%= f.radio_button :executive_role, '1', class="hidden"%> %>
+              <label>Directiva</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <%# <%= f.radio_button :subexecutive_role, '1', class="hidden"%> %>
+              <label>Subdirectiva</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <%# <%= f.radio_button :user_role, '1', class="hidden"%> %>
+              <label>Usuario</label>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
       <div class="actions">
         <%= f.submit "Guardar", class: "ui primary button" %>
       </div>
+
     <% end %>
-    <p></p>
-    <%= render "devise/shared/links" %>
   </div>
 </div>
