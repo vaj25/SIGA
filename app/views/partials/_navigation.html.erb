@@ -36,9 +36,11 @@
         <li>
             <a href="">Opcion 4</a>
         </li>
-        <li>
-            <a href="">Opcion 5</a>
-        </li>
+         <% if can? :manage, Resource %>
+            <li>
+                <%= link_to "Gestionar Usuarios", show_users_registration_path, method: :get %>
+            </li>
+        <% end %>
         <li>
             <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %>
         </li>

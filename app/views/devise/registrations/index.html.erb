@@ -1,0 +1,38 @@
+<div class="ui container">
+
+    <%= link_to "Nuevo usuario", :back, class: "ui primary button" %>
+
+    <table class="ui single line table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Nombre usuario</th>
+                <th>E-mail</th>
+                <th>Fecha de creación</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+                
+            <% @users.each do |user| %>
+
+                <tr>
+                    <td><%= user.name %></td>
+                    <td><%= user.lastname %></td>
+                    <td><%= user.username %></td>
+                    <td> <%= user.email %> </td>
+                    <td><%= user.created_at%></td>
+                    <td>
+                        <%= link_to "Editar", edit_user_registration_path(user) %>
+                        <%= link_to "Eliminar", cancel_user_registration_path(user) %>
+                    </td>
+                </tr>
+
+            <% end %>
+
+        </tbody>
+    </table>
+
+
+</div>
