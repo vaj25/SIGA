@@ -20,17 +20,19 @@
         <li>
             <a href="#">Opcion 2</a>
         </li>
-        <li>
-            <span>Opcion 3</span>
-            <ul>
-                <li>
-                    <a href="">Opcion 3.1</a>
-                </li>
-                <li>
-                    <a href="">Opcion 3.2</a>
-                </li>
-            </ul>
-        </li>
+        <% if can? :manage, Resource %>
+            <li>
+                <span>Opcion 3</span>
+                <ul>
+                    <li>
+                        <a href="">Opcion 3.1</a>
+                    </li>
+                    <li>
+                        <a href="">Opcion 3.2</a>
+                    </li>
+                </ul>
+            </li>
+        <% end %>
         <li>
             <a href="">Opcion 4</a>
         </li>
