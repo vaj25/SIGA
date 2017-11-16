@@ -17,7 +17,12 @@
                 
             <% @users.each do |user| %>
 
-                <tr>
+                <% if user.is_active %>
+                  <tr>
+                <% else %>
+                  <tr class="disabled">
+                <% end %>
+                
                     <td><%= user.name %></td>
                     <td><%= user.lastname %></td>
                     <td><%= user.username %></td>
@@ -25,7 +30,9 @@
                     <td><%= user.created_at%></td>
                     <td>
                         <%= link_to raw('<i class="large edit icon"></i>'), edit_user_registration_path(user) %>
-                        <%= link_to raw('<i class="large erase icon"></i>'), cancel_user_registration_path(user) %>
+                        <% if user.is_active %>
+                            <%= link_to raw('<i class="large erase icon"></i>'), cancel_user_registration_path(user) %>
+                        <% end %>
                     </td>
                 </tr>
 
