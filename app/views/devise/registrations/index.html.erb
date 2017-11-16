@@ -1,6 +1,6 @@
 <div class="ui container">
 
-    <%= link_to "Nuevo usuario", :back, class: "ui primary button" %>
+    <%= link_to "Nuevo usuario", new_user_registration_path, class: "ui primary button" %>
 
     <table class="ui single line table">
         <thead>
@@ -24,8 +24,8 @@
                     <td> <%= user.email %> </td>
                     <td><%= user.created_at%></td>
                     <td>
-                        <%= link_to "Editar", edit_user_registration_path(user) %>
-                        <%= link_to "Eliminar", cancel_user_registration_path(user) %>
+                        <%= link_to raw('<i class="large edit icon"></i>'), edit_user_registration_path(user) %>
+                        <%= link_to raw('<i class="large erase icon"></i>'), cancel_user_registration_path(user) %>
                     </td>
                 </tr>
 

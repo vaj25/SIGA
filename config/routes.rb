@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   
-  devise_for :users, :controllers => {:registrations => "authentication/registrations"} do
-    get "/users/index", to: "authentication/registrations#index", as: "show_users_registration_path"
-  end
+  devise_for :users, :controllers => {:registrations => "authentication/registrations"}
   devise_scope :user do
     get "/users" => "authentication/registrations#index", as: "show_users_registration"
   end
