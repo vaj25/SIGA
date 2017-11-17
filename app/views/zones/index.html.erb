@@ -1,0 +1,34 @@
+<div class="ui container">
+
+    <%= link_to "Nueva zona", new_zone_path, class: "ui primary button" %>
+
+    <table class="ui single line table">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Área</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+                
+            <% @zones.each do |zone| %>
+
+                  <tr> 
+                    <td><%= zone.id %></td>               
+                    <td><%= zone.nombre %></td>
+                    <td> <%= zone.area %> </td>
+                    <td>
+                        <%= link_to raw('<i class="large edit icon"></i>'), edit_zone_path(zone) %>
+                        <%= link_to raw('<i class="large erase icon"></i>'), zone_path(zone), method: :delete %>
+                    </td>
+                </tr>
+
+            <% end %>
+
+        </tbody>
+    </table>
+
+
+</div>
