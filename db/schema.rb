@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117194451) do
+ActiveRecord::Schema.define(version: 20171117201159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "tipo"
+    t.text "descripcion"
+    t.date "fecha_inicio"
+    t.date "fecha_fin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "zone_id"
+    t.index ["zone_id"], name: "index_activities_on_zone_id"
+  end
 
   create_table "resources", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -63,4 +74,5 @@ ActiveRecord::Schema.define(version: 20171117194451) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "activities", "zones"
 end
