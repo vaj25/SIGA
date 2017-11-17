@@ -1,0 +1,2 @@
+class ResourceActivity < ApplicationRecord
+end
