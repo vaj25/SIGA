@@ -1,0 +1,25 @@
+<div class="ui raised very padded text container segment">
+    <%= link_to "Atras", :back %>
+    <h2 class="ui header">Editar Zona</h2>
+    <div class="ui form">
+        <%= form_for(@zone) do |f| %>
+
+        <%= f.hidden_field :id %>
+
+        <div class="field">
+            <%= f.label :nombre %><br />
+            <%= f.text_field :nombre, autofocus: true %>
+        </div>
+
+        <div class="field">
+            <%= f.label :Área %><br />
+            <%= f.number_field :area %>
+        </div>
+
+        <div class="actions">
+            <%= f.submit "Guardar", class: "ui primary button" %>
+        </div>
+
+        <% end %>
+    </div>
+</div>
