@@ -31,14 +31,13 @@ ActiveRecord::Schema.define(version: 20171116052952) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.string "permission_level"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "administrator_rol", default: false
     t.boolean "executive_role", default: false
     t.boolean "subexecutive_role", default: false
     t.boolean "user_role", default: true
-    t.string "name"
     t.string "username"
     t.string "lastname"
     t.boolean "is_active", default: true
