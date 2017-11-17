@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117201159) do
+ActiveRecord::Schema.define(version: 20171117202727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20171117201159) do
     t.datetime "updated_at", null: false
     t.bigint "zone_id"
     t.index ["zone_id"], name: "index_activities_on_zone_id"
+  end
+
+  create_table "collections", force: :cascade do |t|
+    t.decimal "concepto", precision: 8, scale: 2
+    t.text "descripcion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "activity_id"
+    t.index ["activity_id"], name: "index_collections_on_activity_id"
   end
 
   create_table "resources", force: :cascade do |t|
@@ -75,4 +84,5 @@ ActiveRecord::Schema.define(version: 20171117201159) do
   end
 
   add_foreign_key "activities", "zones"
+  add_foreign_key "collections", "activities"
 end
