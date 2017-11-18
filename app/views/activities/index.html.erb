@@ -1,0 +1,40 @@
+<div class="ui container">
+
+    <%= link_to "Nueva Actividad", new_activity_path, class: "ui primary button" %>
+
+    <table class="ui single line table">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+                <th>Fecha inicio</th>
+                <th>Fecha Fin</th>
+                <th>Zona</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+                
+            <% @activities.each do |activity| %>
+
+                  <tr> 
+                    <td><%= activity.id %></td>
+                    <td><%= activity.tipo %></td>
+                    <td><%= activity.descripcion %></td>
+                    <td><%= activity.fecha_inicio %></td>
+                    <td><%= activity.fecha_fin%></td>
+                    <td><%= activity.zone.nombre%></td>
+                    <td>
+                        <%= link_to raw('<i class="large edit icon"></i>'), edit_activity_path(activity) %>
+                        <%= link_to raw('<i class="large erase icon"></i>'), activity_path(activity), method: :delete %>
+                    </td>
+                </tr>
+
+            <% end %>
+
+        </tbody>
+    </table>
+
+
+</div>
