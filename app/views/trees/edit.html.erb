@@ -1,0 +1,41 @@
+<div class="ui raised very padded text container segment">
+    <%= link_to "Atras", :back %>
+    <h2 class="ui header">Editar Arbol</h2>
+    <div class="ui form">
+        <%= form_for(@tree) do |f| %>
+
+        <%= f.hidden_field :id %>
+
+        <div class="field">
+            <%= f.label :Común %><br />
+            <%= f.text_field :nombre_comun, autofocus: true %>
+        </div>
+
+        <div class="field">
+            <%= f.label :Cientifico %><br />
+            <%= f.text_field :nombre_cientifico, autofocus: true %>
+        </div>
+
+
+        <div class="field">
+            <%= f.label :Observaciones %><br />
+            <%= f.text_field :observaciones, autofocus: true %>
+        </div>
+
+        <div class="field">
+            <%= f.label :Cantidad %><br />
+            <%= f.number_field :cantidad %>
+        </div>
+
+        <div class="field">
+            <%= f.label :Precio %><br />
+            <%= f.number_field :precio %>
+        </div>
+
+        <div class="actions">
+            <%= f.submit "Guardar", class: "ui primary button" %>
+        </div>
+
+        <% end %>
+    </div>
+</div>
