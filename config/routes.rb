@@ -8,6 +8,5 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'dashboard#index'
-  resources  :zones
-  resources	 :trees
+  resources  :zones, :activities, :trees
 end
