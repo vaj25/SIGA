@@ -1,0 +1,40 @@
+<div class="ui raised very padded text container segment">
+    <%= link_to "Atras", :back %>
+    <h2 class="ui header">Editar Actividad</h2>
+    <div class="ui form">
+        <%= form_for(@activity) do |f| %>
+
+        <%= f.hidden_field :id %>
+
+        <div class="field">
+            <%= f.label :tipo %><br />
+            <%= f.text_field :tipo, autofocus: true %>
+        </div>
+
+        <div class="field">
+            <%= f.label :descripción %><br />
+            <%= f.text_area :descripcion %>
+        </div>
+        
+        <div class="field">
+            <%= f.label :fecha_inicio %><br />
+            <%= f.date_field :fecha_inicio%>
+        </div>
+
+        <div class="field">
+            <%= f.label :fecha_final %><br />
+            <%= f.date_field :fecha_fin%>
+        </div>
+
+        <div class="field">
+            <%= f.label :zona %><br />
+            <%= f.select :zone_id, options_from_collection_for_select(Zone.all, :id, :nombre) %>
+        </div>
+
+        <div class="actions">
+            <%= f.submit "Guardar", class: "ui primary button" %>
+        </div>
+
+        <% end %>
+    </div>
+</div>

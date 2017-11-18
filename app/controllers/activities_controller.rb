@@ -19,6 +19,25 @@ class ActivitiesController < ApplicationController
         end
     end
 
+    #GET /activities/:id/edit
+    def edit
+        @activity = Activity.find(params[:id])
+    end
+
+    # PUT /activities
+    def update
+        activity = Activity.find(params[:activity][:id])
+        activity.update_attributes(activity_params)
+        redirect_to :action => 'index'
+    end
+
+    # DELETE /activities
+    def destroy
+        activity = Activity.find(params[:id])
+        activity.destroy
+        redirect_to :action => 'index'
+    end
+
     private
     def activity_params
       params.require(:activity).permit(:tipo, :descripcion, :fecha_inicio, :fecha_fin, :zone_id)
