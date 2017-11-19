@@ -1,0 +1,36 @@
+<div class="ui container">
+
+    <%= link_to "Nueva Recaudación", new_collection_path, class: "ui primary button" %>
+
+    <table class="ui fixed single line table">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Concepto</th>
+                <th>Descripción</th>
+                <th>Actividad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+                
+            <% @collections.each do |collection| %>
+
+                  <tr> 
+                    <td><%= collection.id %></td>               
+                    <td><%= collection.concepto %></td>
+                    <td><%= collection.descripcion %></td>
+                    <td><%= collection.activity.tipo%></td>
+                    <td>
+                        <%= link_to raw('<i class="large edit icon"></i>'), edit_collection_path(collection) %>
+                        <%= link_to raw('<i class="large erase icon"></i>'), collection_path(collection), method: :delete %>
+                    </td>
+                </tr>
+
+            <% end %>
+
+        </tbody>
+    </table>
+
+
+</div>

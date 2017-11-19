@@ -1,0 +1,29 @@
+<div class="ui raised very padded text container segment">
+    <%= link_to "Atras", :back %>
+    <h2 class="ui header">Nueva Recaudación</h2>
+    <div class="ui form">
+        <%= form_for(@collection) do |f| %>
+
+        <div class="field">
+            <%= f.label :concepto %><br />
+            <%= f.number_field :concepto, min: 1.00, step: 0.01, autofocus: true %>
+        </div>
+
+        <div class="field">
+            <%= f.label :descripción %><br />
+            <%= f.text_area :descripcion %>
+        </div>
+        
+        <div class="field">
+            <%= f.label :actividad %><br />
+            <%= f.select :activity_id, options_from_collection_for_select(Activity.all, :id, :tipo), 
+                :include_blank => 'Seleccionar Actividad'%>
+        </div>
+
+        <div class="actions">
+            <%= f.submit "Guardar", class: "ui primary button" %>
+        </div>
+
+        <% end %>
+    </div>
+</div>

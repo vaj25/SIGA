@@ -26,7 +26,8 @@
 
         <div class="field">
             <%= f.label :zona %><br />
-            <%= f.select :zone_id, options_from_collection_for_select(Zone.all, :id, :nombre) %>
+            <%= f.select :zone_id, options_from_collection_for_select(Zone.all, :id, :nombre),
+                :include_blank => 'Seleccionar Zona' %>
         </div>
 
         <div class="actions">

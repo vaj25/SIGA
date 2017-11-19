@@ -12,4 +12,14 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
+//= require jquery-1.11.3.min
+//= require semantic.min
+
+
+$(document).ready(function () {
+    $("nav ul li span").click(function () {
+        $(this).siblings("ul").toggle(50);
+    });
+
+    $('.ui.checkbox').checkbox();
+});
