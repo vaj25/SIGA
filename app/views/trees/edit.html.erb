@@ -19,7 +19,7 @@
 
         <div class="field">
             <%= f.label :Observaciones %><br />
-            <%= f.text_field :observaciones, autofocus: true %>
+            <%= f.text_area :observaciones, autofocus: true %>
         </div>
 
         <div class="actions">
@@ -29,3 +29,5 @@
         <% end %>
     </div>
 </div>
+
+<%= javascript_include_tag "validate/tree" %>
