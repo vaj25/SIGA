@@ -8,7 +8,13 @@
 
         <div class="field">
             <%= f.label :tipo %><br />
-            <%= f.text_field :tipo, autofocus: true %>
+            <%= f.select :tipo, options_for_select([
+                    ['Seleccionar Tipo', ''],
+                    ['Reforestación'],
+                    ['Recaudación de fondos'],
+                    ['Reunión'],
+                    ['Asamblea general']
+                ]) %>
         </div>
 
         <div class="field">

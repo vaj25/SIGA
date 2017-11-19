@@ -84,6 +84,7 @@ footer {
     flex-shrink: 0;
     min-height: 6em;
     padding-left: 12em;
+    padding-top: 1.5em;
     z-index: 10;
 }
 
