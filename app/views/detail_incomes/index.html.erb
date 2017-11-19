@@ -19,6 +19,7 @@
                   <tr> 
                     <td><%= detail_income.id %></td>
                     <td><%= detail_income.cantidad %></td>
+                    <td>$<%= '%.2f'%detail_income.precio %></td>
                     <td><%= detail_income.tree.nombre_comun %></td>
                     <td>
                         <%= link_to raw('<i class="large edit icon"></i>'), edit_detail_income_path(detail_income) %>
