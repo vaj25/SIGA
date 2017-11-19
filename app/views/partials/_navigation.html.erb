@@ -20,6 +20,9 @@
         <li>
             <%= link_to "Zona", zones_path, method: :get %>
         </li>
+        <li>
+            <%= link_to "Actividad", activities_path, method: :get %>
+        </li>
         <% if can? :manage, Resource %>
             <li>
                 <span>Opcion 3</span>
