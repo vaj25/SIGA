@@ -26,6 +26,12 @@
          <li> 
             <%= link_to "Recaudación", collections_path, method: :get %> 
         </li>
+        <li> 
+            <%= link_to "Arbol", trees_path, method: :get %> 
+        </li>
+        <li> 
+            <%= link_to "Ingreso árboles", detail_incomes_path, method: :get %> 
+        </li>
         <% if can? :manage, Resource %>
             <li>
                 <span>Opcion 3</span>

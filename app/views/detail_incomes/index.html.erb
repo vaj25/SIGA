@@ -1,0 +1,36 @@
+<div class="ui container">
+
+    <%= link_to "Nuevo Ingreso de Arboles", new_detail_income_path, class: "ui primary button" %>
+
+    <table class="ui single line fixed table">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Arbol</th>
+                <th>Acciones</th>
+             </tr>
+        </thead>
+        <tbody>
+                
+            <% @detail_incomes.each do |detail_income| %>
+
+                  <tr> 
+                    <td><%= detail_income.id %></td>
+                    <td><%= detail_income.cantidad %></td>
+                    <td><%= detail_income.precio %></td>
+                    <td><%= detail_income.tree.nombre_comun %></td>
+                    <td>
+                        <%= link_to raw('<i class="large edit icon"></i>'), edit_detail_income_path(detail_income) %>
+                        <%= link_to raw('<i class="large erase icon"></i>'), detail_income_path(detail_income), method: :delete %>
+                    </td>
+                </tr>
+
+            <% end %>
+
+        </tbody>
+    </table>
+
+
+</div>

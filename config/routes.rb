@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'detail_incomes/index'
+
   get 'trees/index'
 
   devise_for :users, :controllers => {:registrations => "authentication/registrations"}
@@ -8,5 +10,5 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'dashboard#index'
-  resources  :zones, :activities, :trees, :collections
+  resources  :zones, :activities, :trees, :collections, :detail_incomes
 end

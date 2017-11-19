@@ -1,0 +1,29 @@
+<div class="ui raised very padded text container segment">
+    <%= link_to "Atras", :back %>
+    <h2 class="ui header">Nuevo Ingreso de Arboles</h2>
+    <div class="ui form">
+        <%= form_for(@detail_income) do |f| %>
+
+        <div class="field">
+            <%= f.label :tree %><br />
+            <%= f.select :tree_id, options_from_collection_for_select(Tree.all, :id, :nombre_comun),
+            :include_blank => 'Seleccionar Arbol' %>
+        </div>
+
+        <div class="field">
+            <%= f.label :Cantidad %><br />
+            <%= f.number_field :cantidad %>
+        </div>
+
+        <div class="field">
+            <%= f.label :Precio %><br />
+            <%= f.number_field :precio, min: 0.01, step: 0.01, autofocus: true %>
+        </div>
+
+        <div class="actions">
+            <%= f.submit "Guardar", class: "ui primary button" %>
+        </div>
+
+        <% end %>
+    </div>
+</div>

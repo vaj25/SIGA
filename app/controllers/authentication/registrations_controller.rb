@@ -1,6 +1,6 @@
 class Authentication::RegistrationsController < Devise::RegistrationsController
-  skip_before_action :require_no_authentication
-  prepend_before_action :authenticate_scope!, only: [:new, :create, :cancel, :edit, :index]
+  #skip_before_action :require_no_authentication
+  #prepend_before_action :authenticate_scope!, only: [:new, :create, :cancel, :edit, :index]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
