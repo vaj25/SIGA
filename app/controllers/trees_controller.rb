@@ -13,6 +13,7 @@ class TreesController < ApplicationController
     def create
         @tree = Tree.new(tree_params);
         if @tree.save
+            flash[:notice] = "El árbol ha sido creado con exito."
             redirect_to :action => 'index'
         else
             render :new
@@ -28,14 +29,22 @@ class TreesController < ApplicationController
     def update
         tree = Tree.find(params[:tree][:id])
         tree.update_attributes(tree_params)
+        flash[:notice] = "El árbol ha sido editado con exito."
         redirect_to :action => 'index'
     end
 
     # DELETE /trees
     def destroy
         tree = Tree.find(params[:id])
-        tree.destroy
-        redirect_to :action => 'index'
+
+        if DetailIncome.where(tree_id: tree).empty?
+            tree.destroy
+            flash[:notice] = "El árbol ha sido eliminado con exito."
+            redirect_to :action => 'index'
+        else
+            flash[:notice] = "El árbol a eliminar tiene detalles asociados."
+            redirect_to :action => 'index'
+        end
     end
 
     private

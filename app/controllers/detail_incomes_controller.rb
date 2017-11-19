@@ -13,6 +13,7 @@ class DetailIncomesController < ApplicationController
     def create
         @detail_income = DetailIncome.new(detail_income_params);
         if @detail_income.save
+            flash[:notice] = "El ingreso de árbol ha sido creado con exito."
             redirect_to :action => 'index'
         else
             render :new
@@ -28,6 +29,7 @@ class DetailIncomesController < ApplicationController
     def update
         detail_income = DetailIncome.find(params[:detail_income][:id])
         detail_income.update_attributes(detail_income_params)
+        flash[:notice] = "El ingreso de árbol ha sido editado con exito."
         redirect_to :action => 'index'
     end
 
@@ -35,6 +37,7 @@ class DetailIncomesController < ApplicationController
     def destroy
         detail_income = DetailIncome.find(params[:id])
         detail_income.destroy
+        flash[:notice] = "El ingreso de árbol ha sido eliminado con exito."
         redirect_to :action => 'index'
     end
 

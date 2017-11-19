@@ -13,6 +13,7 @@ class ActivitiesController < ApplicationController
     def create
         @activity = Activity.new(activity_params);
         if @activity.save
+            flash[:notice] = "La actividad ha sido creada con exito."
             redirect_to :action => 'index'
         else
             render :new
@@ -28,14 +29,22 @@ class ActivitiesController < ApplicationController
     def update
         activity = Activity.find(params[:activity][:id])
         activity.update_attributes(activity_params)
+        flash[:notice] = "La actividad ha sido editada con exito."
         redirect_to :action => 'index'
     end
 
     # DELETE /activities
     def destroy
         activity = Activity.find(params[:id])
-        activity.destroy
-        redirect_to :action => 'index'
+
+        if Collection.where(activity_id: activity).empty?
+            activity.destroy
+            flash[:notice] = "La actividad ha sido eliminada con exito."
+            redirect_to :action => 'index'
+        else
+            flash[:notice] = "La actividad a eliminar tiene elementos asociados."
+            redirect_to :action => 'index'
+        end
     end
 
     private
