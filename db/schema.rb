@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119061616) do
+ActiveRecord::Schema.define(version: 20171119071808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 20171119061616) do
 
   create_table "resource_activities", force: :cascade do |t|
     t.text "descripcion"
-    t.decimal "precio", precision: 8, scale: 2
-    t.integer "cantidad"
+    t.decimal "precio", precision: 8, scale: 2, default: "0.0"
+    t.integer "cantidad", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "activity_id"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20171119061616) do
   end
 
   create_table "resource_activities_trees", force: :cascade do |t|
-    t.integer "cantidad"
+    t.integer "cantidad", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "tree_id"
