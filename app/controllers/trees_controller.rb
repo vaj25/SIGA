@@ -40,6 +40,6 @@ class TreesController < ApplicationController
 
     private
     def tree_params
-      params.require(:tree).permit(:nombre_comun, :nombre_cientifico, :observaciones, :cantidad, :precio)
+      params.require(:tree).permit(:nombre_comun, :nombre_cientifico, :observaciones)
     end
 end
