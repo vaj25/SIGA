@@ -4,7 +4,7 @@
 <head>
   <title>SIGA</title>
     <%= csrf_meta_tags %>
-
+    <%= favicon_link_tag "logo_01.png"%>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
@@ -24,7 +24,18 @@
   <div class="container">
     <%= yield %>
   </div>
-  <footer>Footer</footer>
+  <footer>
+    <div class="ui two column center aligned grid">
+      <div class="column">
+        <%= image_tag "logo_01.png", :alt => "ALECU", :title => "ALECU", :class => "ui avatar mini image"%>
+        <span>Asociación Local Ecológica de Comunidades Unidas</span>
+      </div>
+      <div class="column">
+        <%= image_tag "Logo_UES_blanco.png", :alt => "UES", :title => "UES", :class => "ui avatar mini image"%>
+        <span>SIGA Copyright (c) 2017 Copyright Holder All Rights Reserved.</span>
+      </div>
+    </div>
+  </footer>
 
 </body>
 

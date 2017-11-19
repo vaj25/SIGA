@@ -18,7 +18,7 @@
                   <tr> 
                     <td><%= zone.id %></td>               
                     <td><%= zone.nombre %></td>
-                    <td> <%= zone.area %> </td>
+                    <td> <%= zone.area %> m<sup>2</sup></td>
                     <td>
                         <%= link_to raw('<i class="large edit icon"></i>'), edit_zone_path(zone) %>
                         <%= link_to raw('<i class="large erase icon"></i>'), zone_path(zone), method: :delete %>
