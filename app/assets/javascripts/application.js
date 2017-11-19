@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require jquery-1.11.3.min
+//= require jquery.validate.min
 //= require semantic.min
 
 
