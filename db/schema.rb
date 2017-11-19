@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119071808) do
+ActiveRecord::Schema.define(version: 20171119145541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20171119071808) do
     t.datetime "updated_at", null: false
     t.bigint "tree_id"
     t.bigint "resource_activity_id"
+    t.decimal "precio", precision: 8, scale: 2, default: "0.0"
     t.index ["resource_activity_id"], name: "index_resource_activities_trees_on_resource_activity_id"
     t.index ["tree_id"], name: "index_resource_activities_trees_on_tree_id"
   end
@@ -90,17 +91,16 @@ ActiveRecord::Schema.define(version: 20171119071808) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.string "permission_level"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "administrator_rol", default: false
     t.boolean "executive_role", default: false
     t.boolean "subexecutive_role", default: false
     t.boolean "user_role", default: true
-    t.string "name"
+    t.boolean "is_active", default: true
     t.string "username"
     t.string "lastname"
-    t.boolean "is_active", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
