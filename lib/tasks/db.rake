@@ -5,7 +5,8 @@ desc "Dumps the database to db/APP_NAME.dump"
 task :dump => :environment do
 cmd = nil
 with_config do |app, host, db, user|
-cmd = "pg_dump --host #{host} --username #{user} -c siga_development --verbose --clean --no-owner --no-acl > #{Rails.root}/public/#{app}.dump"
+# cmd = "pg_dump --host #{host} --username #{user} -c siga_development --verbose --clean --no-owner --no-acl > #{Rails.root}/public/#{app}.dump"
+cmd = "pg_dump --host #{host} --username #{user} -c siga_development > #{Rails.root}/public/#{app}.dump"
 end
 puts cmd
 exec cmd
