@@ -1,0 +1,38 @@
+<div class="ui container">
+
+    <%= link_to "Nuevo Recurso", new_resource_activity_path, class: "ui primary button" %>
+
+    <table class="ui single line fixed table">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Actividad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+                
+            <% @resource_activities.each do |resource_activity| %>
+
+                  <tr> 
+                    <td><%= resource_activity.id %></td>
+                    <td><%= resource_activity.descripcion %></td>
+                    <td><%= '%.2f'%resource_activity.precio %></td>
+                    <td><%= resource_activity.cantidad %></td>
+                    <td><%= resource_activity.activity.descripcion %></td>
+                    <td>
+                        <%= link_to raw('<i class="large edit icon"></i>'), edit_resource_activity_path(resource_activity) %>
+                        <%= link_to raw('<i class="large erase icon"></i>'), resource_activity_path(resource_activity), method: :delete %>
+                    </td>
+                </tr>
+
+            <% end %>
+
+        </tbody>
+    </table>
+
+
+</div>

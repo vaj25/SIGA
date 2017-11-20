@@ -1,0 +1,36 @@
+<div class="ui container">
+
+    <%= link_to "Nuevo Recurso Arbol", new_resource_activities_tree_path, class: "ui primary button" %>
+
+    <table class="ui single line fixed table">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Cantidad</th>
+                <th>Arbol</th>
+                <th>Recurso</th>                
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+                
+            <% @resource_activities_trees.each do |resource_activities_tree| %>
+
+                  <tr> 
+                    <td><%= resource_activities_tree.id %></td>
+                    <td><%= resource_activities_tree.cantidad %></td>
+                    <td><%= resource_activities_tree.tree.nombre_comun %></td>
+                    <td><%= resource_activities_tree.resource_activity.descripcion %></td>                
+                    <td>
+                        <%= link_to raw('<i classs="large edit icon"></i>'), edit_resource_activities_tree_path(resource_activities_tree) %>
+                        <%= link_to raw('<i class="large erase icon"></i>'), resource_activities_tree_path(resource_activities_tree), method: :delete %>
+                    </td>
+                </tr>
+
+            <% end %>
+
+        </tbody>
+    </table>
+
+
+</div>
