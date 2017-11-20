@@ -13,6 +13,7 @@ class CollectionsController < ApplicationController
     def create
         @collection = Collection.new(collection_params);
         if @collection.save
+            flash[:notice] = "La recaudación ha sido creada con exito."
             redirect_to :action => 'index'
         else
             render :new
@@ -28,6 +29,7 @@ class CollectionsController < ApplicationController
     def update
         collection = Collection.find(params[:collection][:id])
         collection.update_attributes(collection_params)
+        flash[:notice] = "La recaudación ha sido editada con exito."
         redirect_to :action => 'index'
     end
 
@@ -35,6 +37,7 @@ class CollectionsController < ApplicationController
     def destroy
         collection = Collection.find(params[:id])
         collection.destroy
+        flash[:notice] = "La recaudación ha sido eliminada con exito."
         redirect_to :action => 'index'
     end
 

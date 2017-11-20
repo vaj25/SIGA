@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119071808) do
+ActiveRecord::Schema.define(version: 20171119145541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20171119071808) do
     t.datetime "updated_at", null: false
     t.bigint "tree_id"
     t.bigint "resource_activity_id"
+    t.decimal "precio", precision: 8, scale: 2, default: "0.0"
     t.index ["resource_activity_id"], name: "index_resource_activities_trees_on_resource_activity_id"
     t.index ["tree_id"], name: "index_resource_activities_trees_on_tree_id"
   end

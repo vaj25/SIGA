@@ -85,5 +85,5 @@ test:
 production:
   <<: *default
   database: siga_production
-  username: siga
-  password: <%= ENV['siga_DATABASE_PASSWORD'] %>
+  username: postgres
+  password: root

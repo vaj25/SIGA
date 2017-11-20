@@ -34,8 +34,13 @@ class ZonesController < ApplicationController
     # DELETE /zones
     def destroy
         zone = Zone.find(params[:id])
-        zone.destroy
-        redirect_to :action => 'index'
+        if Activity.where(zone_id: zone).empty?
+            zone.destroy
+            redirect_to :action => 'index'
+        else
+            flash[:notice] = "La zona a eliminar tiene elementos asociados."
+            redirect_to :action => 'index'
+        end
     end
 
     private
