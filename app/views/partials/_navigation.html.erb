@@ -27,25 +27,20 @@
          <li> 
             <%= link_to "Recaudación", collections_path, method: :get %> 
         </li>
-        <% if can? :manage, Resource %>
-            <li>
-                <span>Opcion 3</span>
-                <ul>
-                    <li>
-                        <a href="">Opcion 3.1</a>
-                    </li>
-                    <li>
-                        <a href="">Opcion 3.2</a>
-                    </li>
-                </ul>
-            </li>
-        <% end %>
         <li>
             <a href="">Opcion 4</a>
         </li>
-         <% if can? :manage, Resource %>
+        <% if can? :manage, Resource %>
             <li>
-                <%= link_to "Gestionar Usuarios", show_users_registration_path, method: :get %>
+                <span>Administración</span>
+                <ul>
+                    <li>
+                       <%= link_to "Backup", administration_index_path, method: :get %>
+                    </li>
+                    <li>
+                        <%= link_to "Gestionar Usuarios", show_users_registration_path, method: :get %>
+                    </li>
+                </ul>
             </li>
         <% end %>
         <li>
