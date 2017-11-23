@@ -4,7 +4,9 @@
     <h2 class="ui header">Parametros</h2>
     <p>Fecha Inicial: <%= @fecha_inicial %> - Fecha Final: <%= @fecha_final %></p>
     <%= link_to "Descargar PDF", new_tree_path, class: "ui red button" %>
-    <%= link_to "Descargar Excel", income_summary_index_path(format: :xlsx), class: "ui green button" %>
+    <%= link_to "Descargar Excel", 
+        income_summary_index_path(format: :xlsx, fecha_inicial: @fecha_inicial, fecha_final: @fecha_final, page: 1), 
+        class: "ui green button" %>
 
     <table class="ui single line table">
         <thead>

@@ -6,8 +6,8 @@ class Reports::IncomeSummaryController < ApplicationController
         time_range = @fecha_inicial..@fecha_final
         @incomes = Activity.joins(:collections).where(activities: { fecha_inicio: time_range }).select("
                         collections.descripcion, activities.tipo, activities.fecha_inicio, collections.concepto
-                    ").paginate(:page => params[:page], :per_page => 1)
-        
+                    ").paginate(:page => params[:page], :per_page => 10)
+
         respond_to do |format|
             format.html
             format.xlsx {
