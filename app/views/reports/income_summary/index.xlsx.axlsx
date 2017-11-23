@@ -1,0 +1,11 @@
+require 'axlsx'
+
+xlsx_package = Axlsx::Package.new
+
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Ingresos") do |sheet|
+    sheet.add_row ["Descripción", "Actividad", "Fecha", "Concepto"]
+    @incomes.each do |income|
+        sheet.add_row [income.descripcion, income.tipo, income.fecha_inicio, income.concepto]
+    end
+end

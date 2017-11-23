@@ -13,6 +13,7 @@ class ZonesController < ApplicationController
     def create
         @zone = Zone.new(zone_params);
         if @zone.save
+            flash[:notice] = "La zona ha sido creada con exito."
             redirect_to :action => 'index'
         else
             render :new
@@ -28,6 +29,7 @@ class ZonesController < ApplicationController
     def update
         zone = Zone.find(params[:zone][:id])
         zone.update_attributes(zone_params)
+        flash[:notice] = "La zona ha sido editada con exito."
         redirect_to :action => 'index'
     end
 

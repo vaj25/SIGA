@@ -37,8 +37,15 @@ gem 'bcrypt', '~> 3.1.11'
 
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
+gem 'rubyzip'
+gem 'zip-zip'
+
 gem 'devise'
 gem 'cancancan'
+gem 'will_paginate'
+gem 'axlsx'
+gem 'acts_as_xlsx'
+gem 'axlsx_rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

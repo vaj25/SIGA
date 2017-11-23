@@ -17,10 +17,23 @@
 //= require semantic.min
 
 
-$(document).ready(function () {
+$(document).on('turbolinks:load' ,function () {
     $("nav ul li span").click(function () {
         $(this).siblings("ul").toggle(50);
     });
 
     $('.ui.checkbox').checkbox();
+
+    $(".pagination").addClass("ui right floated pagination menu");
+    $(".pagination a").each(function () {
+        $(this).addClass("item");
+    });
+
+    $(".pagination span").each(function () {
+        $(this).addClass("item");
+    });
+
+    $(".pagination em").each(function () {
+        $(this).addClass("item");
+    });
 });
