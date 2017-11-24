@@ -33,6 +33,9 @@
                 <li> 
                     <%= link_to "Resumen Ingreso", new_income_summary_path, method: :get %> 
                 </li>
+                <li> 
+                    <%= link_to "Recursos Reforestación", new_resources_reforestation_path, method: :get %> 
+                </li>
             </ul>
         </li>
         <% if can? :manage, Resource %>

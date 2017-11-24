@@ -19,4 +19,6 @@ Rails.application.routes.draw do
 
   resources :income_summary, controller: "reports/income_summary"
 
+  resources :resources_reforestation, controller: "reports/resources_reforestation"
+
 end

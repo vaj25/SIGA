@@ -1,0 +1,83 @@
+<div class="ui container">
+    <%= link_to "Atras", :back %>
+    <h1 class="ui dividing header">Reporte de recursos por reforestación</h1>
+    <h2 class="ui header">Parametros</h2>
+    <p>Reforestación: <%= @id_reforestacion %></p>
+    <%= link_to "Descargar PDF", 
+        income_summary_index_path(format: :pdf, fecha_inicial: @fecha_inicial, fecha_final: @fecha_final),
+        class: "ui red button" %>
+    <%= link_to "Descargar Excel", 
+        income_summary_index_path(format: :xlsx, fecha_inicial: @fecha_inicial, fecha_final: @fecha_final), 
+        class: "ui green button" %>
+
+    <table class="ui single line table">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Fecha</th>
+                <th>Descripción</th>                
+                <th>Cantidad</th>                
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% i = 1 %>
+            <% cops = 0 %>
+            <% @reforestatios.each do |ref| %>
+
+                  <tr> 
+                    <td> <%= i %> </td>               
+                    <td> <%= ref.fecha_inicio %> </td>
+                    <td> <%= ref.descripcion %> </td>
+                    <td> <%= ref.cantidad %> </td>
+                    <td> $<%= '%.2f'%ref.precio %> </td>
+                </tr>
+                <% cops += ref.precio %>
+                <% i += 1 %>
+            <% end %>
+
+                <tr>
+                    <td colspan="4">Total:</td>
+                    <td> $<%= '%.2f'%cops %> </td>
+                </tr>
+
+        </tbody>
+    </table>
+
+      <table class="ui single line table">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Nombre común</th>                
+                <th>Cantidad</th>                
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% i = 1 %>
+            <% cops = 0 %>
+
+            <% @trees.each do |tree| %>
+
+                  <tr> 
+                    <td> <%= i %> </td>   
+                    <td> <%= tree.nombre_comun %> </td>            
+                    <td> <%= tree.cantidad %> </td>
+                    <td> $<%= '%.2f'%tree.precio %> </td>
+                </tr>
+                <% cops += tree.precio*tree.cantidad %>
+                <% i += 1 %>
+            <% end %>
+
+                <tr>
+                    <td colspan="3">Total:</td>
+                    <td> $<%= '%.2f'%cops %> </td>
+                </tr>
+
+        </tbody>
+    </table>
+
+        <%= page_entries_info @reforestatios %>
+        <%= will_paginate @reforestatios%>
+
+</div>
