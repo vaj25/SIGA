@@ -39,12 +39,21 @@ gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 gem 'zip-zip'
 
+#autenticacion
 gem 'devise'
 gem 'cancancan'
+
+#paginacion
 gem 'will_paginate'
+
+#exportar xlsx
 gem 'activeadmin'
 gem 'acts_as_xlsx'
 gem 'axlsx_rails'
+
+#exportar pdf
+gem 'prawn'
+gem 'prawn-table'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
