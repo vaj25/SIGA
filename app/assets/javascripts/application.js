@@ -14,6 +14,7 @@
 //= require turbolinks
 //= require jquery-1.11.3.min
 //= require jquery.validate.min
+//= require additional-methods.js
 //= require semantic.min
 
 
