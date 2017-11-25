@@ -1,0 +1,44 @@
+wb = xlsx_package.workbook
+wb.styles do |style|
+    title_cell = style.add_style(b: true, border: Axlsx::STYLE_THIN_BORDER, alignment: {horizontal: :center, vertical: :center})
+    date_cell = style.add_style(format_code: "dd-mm-yyyy", border: Axlsx::STYLE_THIN_BORDER)
+    money_cell = style.add_style(border: Axlsx::STYLE_THIN_BORDER, alignment: { horizontal: :center}, :format_code => '$#.##')
+    simple_cell = style.add_style(border: Axlsx::STYLE_THIN_BORDER)
+
+    wb.add_worksheet(name: "Recursos") do |sheet|
+
+        sheet.add_row ["Asociación Local Ecológica de Comunidades Unidas", "", "", ""], style: [title_cell, title_cell, title_cell, title_cell]
+        sheet.add_row ["", "", "", ""], style: [title_cell, title_cell, title_cell, title_cell]
+        sheet.merge_cells "A1:D2"
+        
+        sheet.add_row ["Reporte de recursos por reforestación", "", "", ""], style: [title_cell, title_cell, title_cell, title_cell]
+        sheet.merge_cells "A3:D3"
+
+        sheet.add_row ["Parametros:", "Reforestación: #{@id_reforestacion} ", "", ""], 
+            style: [title_cell, simple_cell, title_cell, simple_cell]
+        sheet.merge_cells "B4:D4"
+
+        sheet.add_row ["Creado por:", "#{current_user.name} #{current_user.lastname}", "Fecha de creación: ", "#{Time.now.strftime "%d-%m-%Y"}"], 
+            style: [title_cell, simple_cell, title_cell, date_cell]
+
+        sheet.add_row ["", "", "", ""], style: [simple_cell, simple_cell, simple_cell, simple_cell]
+
+        cops = 0
+        tot = 0
+        sheet.add_row ["Fecha", "Descripción", "Cantidad", "Precio"], style: [title_cell, title_cell, title_cell, title_cell]
+        @reforestations.each do |ref|
+            sheet.add_row [ref.fecha_inicio, ref.descripcion, ref.cantidad, '%.2f'%ref.precio], style:
+                [date_cell, simple_cell, simple_cell, money_cell]
+            cops += ref.precio
+        end
+        sheet.add_row ["Total:", "", "", cops], style: [simple_cell, simple_cell, simple_cell, money_cell]
+
+        sheet.add_row ["Nombre común", "Cantidad", "Precio",""], style: [title_cell, title_cell, title_cell,simple_cell]
+        @trees.each do |tree|
+            sheet.add_row [tree.nombre_comun, tree.cantidad, '%.2f'%tree.precio,""], style:
+                [date_cell, simple_cell, money_cell,simple_cell]
+            tot += tree.precio*tree.cantidad
+        end
+        sheet.add_row ["Total:", "", tot,""], style: [simple_cell, simple_cell, money_cell,simple_cell]
+    end
+end

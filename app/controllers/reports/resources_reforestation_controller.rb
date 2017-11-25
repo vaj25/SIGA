@@ -1,5 +1,3 @@
-# require '/app/pdfs/resource_reforestation_pdf.rb'
-
 class Reports::ResourcesReforestationController < ApplicationController
     #GET /resource_reforestation
     def index
@@ -18,14 +16,24 @@ class Reports::ResourcesReforestationController < ApplicationController
           
             end
             format.xlsx {
-                @reforestatios = Activity.joins(:collections).where(activities: { fecha_inicio: time_range }).select("
-                collections.descripcion, activities.tipo, activities.fecha_inicio, collections.concepto")
+                @reforestations = Activity.joins(:resource_activity).where(activities: { id: @id_reforestacion }).select("
+                                resource_activities.descripcion, activities.fecha_inicio,
+                                resource_activities.cantidad, resource_activities.precio")
 
-                response.headers['Content-Disposition'] = 'attachment; filename="resumen_ingreso.xlsx"'
+                @trees = ResourceActivity.joins(resource_activities_tree: :tree).where(resource_activities: {activity_id: @id_reforestacion }).select("
+                                resource_activities_trees.cantidad, resource_activities_trees.precio, trees.nombre_comun")                
+    
+
+                response.headers['Content-Disposition'] = 'attachment; filename="recursos_reforestacion.xlsx"'
+
             }
             format.pdf do
-                incomes = Activity.joins(:collections).where(activities: { fecha_inicio: time_range }).select("
-                collections.descripcion, activities.tipo, activities.fecha_inicio, collections.concepto")
+                reforestations = Activity.joins(:resource_activity).where(activities: { id: @id_reforestacion }).select("
+                                resource_activities.descripcion, activities.fecha_inicio,
+                                resource_activities.cantidad, resource_activities.precio")
+
+                trees = ResourceActivity.joins(resource_activities_tree: :tree).where(resource_activities: {activity_id: @id_reforestacion }).select("
+                                resource_activities_trees.cantidad, resource_activities_trees.precio, trees.nombre_comun")
                 
                 pdf = Prawn::Document.new do
                     repeat :all do
@@ -36,24 +44,37 @@ class Reports::ResourcesReforestationController < ApplicationController
                         image "#{Rails.root}/app/assets/images/logo_01.png", :position => :right, :vposition => :top, :width => 80
                     end
 
-                    text "Reporte de resumen de ingresos", :align => :center, :size => 16
+                    text "Reporte de recursos por reforestación.", :align => :center, :size => 16
                     move_down 15
 
                     text "Parametros:", :size => 13
-                    text "Fecha inicial: #{time_range.to_a[0]} - Fecha final: #{time_range.max}", :size => 12
+                    text "Reforestación: #{@id_reforestacion.to_s}" , :size => 12
                     text "Creado por: #{name_user}. Fecha de creación: #{Time.now.strftime "%d-%m-%Y"}"
                     move_down 15
 
                     cops = 0
-                    incomes.each do |incom|
-                        cops += incom.concepto
+                    tot = 0
+                    reforestations.each do |incom|
+                        cops += incom.precio
                     end
 
-                    table = [["Descripción", "Actividad", "Fecha", "Concepto"]] +
-                        incomes.map do |income|
-                            [income.descripcion, income.tipo, income.fecha_inicio, income.concepto]
+                    trees.each do |tree|
+                        tot += tree.precio*tree.cantidad
+                    end
+
+                    table = [["Fecha", "Descripción", "Cantidad", "Precio"]] +
+                        reforestations.map do |ref|
+                            [ref.fecha_inicio, ref.descripcion, ref.cantidad, ref.precio]
                         end
                     table << ["Total", "", "", cops]
+                    table << ["Detalle de árboles:"]
+                    table table, :position => :center, :width => 500                    
+                    
+                    table = [["Nombre común", "Cantidad", "Precio"]] +
+                        trees.map do |tree|
+                            [tree.nombre_comun, tree.cantidad, tree.precio]
+                        end
+                    table << ["Total", "", tot]
                     table table, :position => :center, :width => 500
 
                     page_count.times do |i|
