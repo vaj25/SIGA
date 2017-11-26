@@ -21,4 +21,6 @@ Rails.application.routes.draw do
 
   resources :resources_reforestation, controller: "reports/resources_reforestation"
 
+  resources :adquisition_tree, controller: "reports/adquisition_tree"
+
 end

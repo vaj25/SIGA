@@ -1,0 +1,48 @@
+<div class="ui container">
+    <%= link_to "Atras", :back %>
+    <h1 class="ui dividing header">Reporte de adquision de arboles</h1>
+    <h2 class="ui header">Parametros</h2>
+    <p>Fecha Inicial: <%= @fecha_inicial %> - Fecha Final: <%= @fecha_final %></p>
+    <%= link_to "Descargar PDF", 
+        adquisition_tree_index_path(format: :pdf, fecha_inicial: @fecha_inicial, fecha_final: @fecha_final),
+        class: "ui red button" %>
+    <%= link_to "Descargar Excel", 
+        adquisition_tree_index_path(format: :xlsx, fecha_inicial: @fecha_inicial, fecha_final: @fecha_final), 
+        class: "ui green button" %>
+
+    <table class="ui single line table">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Nombre comun</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Fecha de adquision</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% i = 1 %>
+           
+            <% @adquisitions.each do |adquisition| %>
+
+                  <tr> 
+                    <td> <%= i %> </td>               
+                    <td> <%= adquisition.nombre_comun %> </td>
+                    <td> <%= adquisition.cantidad %> </td>
+                    <td> <%= '%.2f'%adquisition.precio %> </td>
+                    <td> <%= adquisition.created_at %> </td>
+                    <%# <td>$<%= '%.2f'%tree.precio %</td> %>
+                </tr>
+                
+                <% i += 1 %>
+            <% end %>
+
+                
+
+        </tbody>
+    </table>
+
+        <%= page_entries_info @adquisitions %>
+        <%= will_paginate @adquisitions%>
+
+</div>

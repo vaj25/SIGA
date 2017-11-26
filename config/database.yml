@@ -23,9 +23,9 @@ default: &default
 
 development:
   <<: *default
-  database: siga_development
+  database: siga_development1
   username: postgres
-  password: root
+  password: jose
   host: 127.0.0.1
   port: 5432
 

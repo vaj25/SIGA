@@ -1,0 +1,24 @@
+<div class="ui raised very padded text container segment">
+    <h2 class="ui header">Reporte de adquisicion de arboles</h2>
+    <div class="ui form">
+        <form class="show_adquisition_tree" id="show_adquisition_tree" action="/adquisition_tree" method="get">
+
+            <div class="field">
+                <label for="">Fecha Incial</label><br />
+                <input type="date" id="fecha_inicial" name="fecha_inicial">
+            </div>
+
+            <div class="field">
+                <label for="">Fecha Final</label><br />
+                <input type="date" id="fecha_final" name="fecha_final">
+            </div>
+
+            <div class="actions">
+                <button type="submit" form="show_adquisition_tree" value="Generar" class="ui primary button">Generar</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<%= javascript_include_tag "validate/reports/adquisition_tree" %>
