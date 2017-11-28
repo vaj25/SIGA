@@ -4,6 +4,7 @@ class Reports::ResourcesReforestationController < ApplicationController
         @id_reforestacion = params[:id_reforestacion]
         name_user = current_user.name + " " + current_user.lastname
 
+
         respond_to do |format|
             format.html do
                 @reforestatios = Activity.joins(:resource_activity).where(activities: { id: @id_reforestacion }).select("
@@ -13,7 +14,9 @@ class Reports::ResourcesReforestationController < ApplicationController
 
                 @trees = ResourceActivity.joins(resource_activities_tree: :tree).where(resource_activities: {activity_id: @id_reforestacion }).select("
                                 resource_activities_trees.cantidad, resource_activities_trees.precio, trees.nombre_comun")
-          
+
+                @activity =Activity.find(@id_reforestacion) 
+ 
             end
             format.xlsx {
                 @reforestations = Activity.joins(:resource_activity).where(activities: { id: @id_reforestacion }).select("
@@ -21,7 +24,9 @@ class Reports::ResourcesReforestationController < ApplicationController
                                 resource_activities.cantidad, resource_activities.precio")
 
                 @trees = ResourceActivity.joins(resource_activities_tree: :tree).where(resource_activities: {activity_id: @id_reforestacion }).select("
-                                resource_activities_trees.cantidad, resource_activities_trees.precio, trees.nombre_comun")                
+                                resource_activities_trees.cantidad, resource_activities_trees.precio, trees.nombre_comun")   
+
+                @activity =Activity.find(@id_reforestacion)              
     
 
                 response.headers['Content-Disposition'] = 'attachment; filename="recursos_reforestacion.xlsx"'
@@ -34,6 +39,10 @@ class Reports::ResourcesReforestationController < ApplicationController
 
                 trees = ResourceActivity.joins(resource_activities_tree: :tree).where(resource_activities: {activity_id: @id_reforestacion }).select("
                                 resource_activities_trees.cantidad, resource_activities_trees.precio, trees.nombre_comun")
+
+                @activity =Activity.find(@id_reforestacion) 
+
+                cadena_param = 'Reforestación: ' + @activity.id.to_s + ', Fecha: ' + @activity.fecha_inicio.to_s + ', Zona: ' + @activity.zone.nombre.to_s
                 
                 pdf = Prawn::Document.new do
                     repeat :all do
@@ -48,7 +57,7 @@ class Reports::ResourcesReforestationController < ApplicationController
                     move_down 15
 
                     text "Parametros:", :size => 13
-                    text "Reforestación: #{@id_reforestacion.to_s}" , :size => 12
+                    text "#{cadena_param}" , :size => 12
                     text "Creado por: #{name_user}. Fecha de creación: #{Time.now.strftime "%d-%m-%Y"}"
                     move_down 15
 

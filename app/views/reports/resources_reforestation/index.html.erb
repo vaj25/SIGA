@@ -2,7 +2,7 @@
     <%= link_to "Atras", :back %>
     <h1 class="ui dividing header">Reporte de recursos por reforestación</h1>
     <h2 class="ui header">Parametros</h2>
-    <p>Reforestación: <%= @id_reforestacion %></p>
+    <p><%= 'Reforestación: ' + @activity.id.to_s + ', Fecha: ' + @activity.fecha_inicio.to_s + ', Zona: ' + @activity.zone.nombre.to_s %></p>
     <%= link_to "Descargar PDF", 
         resources_reforestation_index_path(format: :pdf, id_reforestacion: @id_reforestacion),
         class: "ui red button" %>

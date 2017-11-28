@@ -1,4 +1,5 @@
 wb = xlsx_package.workbook
+cadena_param = 'Reforestación: ' + @activity.id.to_s + ', Fecha: ' + @activity.fecha_inicio.to_s + ', Zona: ' + @activity.zone.nombre.to_s
 wb.styles do |style|
     title_cell = style.add_style(b: true, border: Axlsx::STYLE_THIN_BORDER, alignment: {horizontal: :center, vertical: :center})
     date_cell = style.add_style(format_code: "dd-mm-yyyy", border: Axlsx::STYLE_THIN_BORDER)
@@ -14,7 +15,7 @@ wb.styles do |style|
         sheet.add_row ["Reporte de recursos por reforestación", "", "", ""], style: [title_cell, title_cell, title_cell, title_cell]
         sheet.merge_cells "A3:D3"
 
-        sheet.add_row ["Parametros:", "Reforestación: #{@id_reforestacion} ", "", ""], 
+        sheet.add_row ["Parametros:", "#{cadena_param} ", "", ""], 
             style: [title_cell, simple_cell, title_cell, simple_cell]
         sheet.merge_cells "B4:D4"
 
