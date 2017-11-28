@@ -87,5 +87,9 @@ class Reports::ResourcesReforestationController < ApplicationController
             end
         end
     end
+    def new
+         @activities = Activity.joins(:zone).where(activities: { tipo: 'Reforestación' }).select("activities.id,
+            activities.fecha_inicio,zones.nombre")
+    end
 
 end

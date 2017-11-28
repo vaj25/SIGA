@@ -5,9 +5,11 @@
 
             <div class="field">
                 <label for="">Reforestación</label><br />
-                  <select id='id_reforestacion' name ='id_reforestacion'>
-                 <%= options_from_collection_for_select(Activity.all, :id, :fecha_inicio)%>
-            </select>
+            <select id=id_reforestacion name=id_reforestacion>
+                 <% @activities.each do |activity| %>
+              <option value=<%= activity.id %>><%= 'Reforestación: ' + activity.id.to_s + ', Fecha: ' + activity.fecha_inicio.to_s + ', Zona: ' + activity.nombre.to_s %></option>
+            <% end %>
+            </select> 
             </div>
 
             <div class="actions">
@@ -18,3 +20,5 @@
     </div>
 </div>
 
+
+           
