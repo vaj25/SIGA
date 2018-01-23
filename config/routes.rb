@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   get 'detail_incomes/index'
 
   get 'trees/index'
@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   root 'dashboard#index'
 
   resources  :zones, :activities, :trees, :collections, :detail_incomes, :administration, :resource_activities, :resource_activities_trees
+
+  resources  :members
 
   resources :income_summary, controller: "reports/income_summary"
 

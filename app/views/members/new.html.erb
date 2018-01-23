@@ -1,0 +1,41 @@
+<div class="ui raised very padded text container segment">
+    <%= link_to "Atras", :back %>
+    <h2 class="ui header">Nuevo miembro</h2>
+    <div class="ui form">
+        <%= form_for(@member) do |f| %>
+
+        <div class="field">
+            <%= f.label :primer_nombre %><br />
+            <%= f.text_field :primer_nombre %>
+        </div>
+
+        <div class="field">
+            <%= f.label :segundo_nombre %><br />
+            <%= f.text_field :segundo_nombre %>
+        </div>
+
+        <div class="field">
+            <%= f.label :primer_apellido %><br />
+            <%= f.text_field :primer_apellido %>
+        </div>
+
+        <div class="field">
+            <%= f.label :segundo_apellido %><br />
+            <%= f.text_field :segundo_apellido %>
+        </div>
+
+        <div class="field">
+            <%= f.label :dui %><br />
+            <%= f.number_field :dui %>
+        </div>
+
+
+        <div class="actions">
+            <%= f.submit "Guardar", class: "ui primary button" %>
+        </div>
+
+        <% end %>
+    </div>
+</div>
+
+<%= javascript_include_tag "validate/member" %>

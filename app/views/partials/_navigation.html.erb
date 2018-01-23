@@ -5,36 +5,45 @@
     </div>
     <ul>
         <li>
-            <%= link_to "Inicio", root_path, method: :get %> 
+            <%= link_to "Inicio", root_path, method: :get %>
         </li>
+        <li>
+        <span>Gestionar Junta directiva</span>
+        <ul>
+            <li>
+                <%= link_to "Miembros", members_path, method: :get %>
+            </li>
+        </ul>
+    </li>
         <li>
             <span>Gestionar Árboles</span>
             <ul>
-                <li> 
-                    <%= link_to "Árbol", trees_path, method: :get %> 
+                <li>
+                    <%= link_to "Árbol", trees_path, method: :get %>
                 </li>
-                <li> 
-                    <%= link_to "Ingreso árboles", detail_incomes_path, method: :get %> 
+                <li>
+                    <%= link_to "Ingreso árboles", detail_incomes_path, method: :get %>
                 </li>
             </ul>
         </li>
+
         <li>
             <%= link_to "Zona", zones_path, method: :get %>
         </li>
         <li>
             <%= link_to "Actividad", activities_path, method: :get %>
         </li>
-         <li> 
-            <%= link_to "Recaudación", collections_path, method: :get %> 
+         <li>
+            <%= link_to "Recaudación", collections_path, method: :get %>
         </li>
         <li>
             <span>Reportes</span>
             <ul>
-                <li> 
-                    <%= link_to "Resumen Ingreso", new_income_summary_path, method: :get %> 
+                <li>
+                    <%= link_to "Resumen Ingreso", new_income_summary_path, method: :get %>
                 </li>
-                <li> 
-                    <%= link_to "Recursos Reforestación", new_resources_reforestation_path, method: :get %> 
+                <li>
+                    <%= link_to "Recursos Reforestación", new_resources_reforestation_path, method: :get %>
                 </li>
             </ul>
         </li>
