@@ -29,7 +29,7 @@
         <div class="field">
             <%= f.label :cargo %><br />
             <%= f.select :charge_id, options_from_collection_for_select(Charge.all, :id, :nombre),
-                :include_blank => 'Seleccionar Cargo' %>
+                :include_blank => Member.find(@member.id).charge.nombre.to_s%>
         </div>
 
         <div class="field">
