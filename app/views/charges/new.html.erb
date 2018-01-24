@@ -1,0 +1,25 @@
+<div class="ui raised very padded text container segment">
+    <%= link_to "Atras", :back %>
+    <h2 class="ui header">Nuevo Cargo</h2>
+    <div class="ui form">
+        <%= form_for(@charge) do |f| %>
+
+        <div class="field">
+            <%= f.label :nombre %><br />
+            <%= f.text_field :nombre %>
+        </div>
+
+        <div class="field">
+            <%= f.label :descripcion %><br />
+            <%= f.text_area :descripcion %>
+        </div>
+
+        <div class="actions">
+            <%= f.submit "Guardar", class: "ui primary button" %>
+        </div>
+
+        <% end %>
+    </div>
+</div>
+
+<%= javascript_include_tag "validate/charge" %>

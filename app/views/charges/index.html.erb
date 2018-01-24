@@ -1,0 +1,34 @@
+<div class="ui container">
+
+    <%= link_to "Nuevo cargo", new_charge_path, class: "ui primary button" %>
+
+    <table class="ui fixed single line table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% @charges.each do |charge| %>
+
+                  <tr>
+                    <td><%= charge.id %></td>
+                    <td><%= charge.nombre %></td>
+                    <td><%= charge.descripcion %></td>
+                    <td>
+                        <%= link_to raw('<i class="large edit icon"></i>'), edit_charge_path(charge) %>
+                        <%= link_to raw('<i class="large erase icon"></i>'), charge_path(charge), method: :delete %>
+                    </td>
+                </tr>
+
+            <% end %>
+
+        </tbody>
+    </table>
+
+
+</div>

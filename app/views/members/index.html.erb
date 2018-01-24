@@ -11,6 +11,7 @@
                 <th>Primer apellido</th>
                 <th>Segundo apellido</th>
                 <th>DUI</th>
+                <th>Cargo</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -25,6 +26,7 @@
                     <td><%= member.primer_apellido%></td>
                     <td><%= member.segundo_apellido%></td>
                     <td><%= member.dui%></td>
+                    <td><%= member.charge.nombre%></td>
                     <td>
                         <%= link_to raw('<i class="large edit icon"></i>'), edit_member_path(member) %>
                         <%= link_to raw('<i class="large erase icon"></i>'), member_path(member), method: :delete %>

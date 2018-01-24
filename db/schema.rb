@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180123035456) do
+ActiveRecord::Schema.define(version: 20180124035144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 20180123035456) do
     t.datetime "updated_at", null: false
     t.bigint "zone_id"
     t.index ["zone_id"], name: "index_activities_on_zone_id"
+  end
+
+  create_table "charges", force: :cascade do |t|
+    t.string "nombre"
+    t.text "descripcion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "collections", force: :cascade do |t|
@@ -52,6 +59,8 @@ ActiveRecord::Schema.define(version: 20180123035456) do
     t.string "dui"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "charge_id"
+    t.index ["charge_id"], name: "index_members_on_charge_id"
   end
 
   create_table "resource_activities", force: :cascade do |t|
@@ -126,6 +135,7 @@ ActiveRecord::Schema.define(version: 20180123035456) do
   add_foreign_key "activities", "zones"
   add_foreign_key "collections", "activities"
   add_foreign_key "detail_incomes", "trees"
+  add_foreign_key "members", "charges"
   add_foreign_key "resource_activities", "activities"
   add_foreign_key "resource_activities_trees", "resource_activities"
   add_foreign_key "resource_activities_trees", "trees"

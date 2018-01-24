@@ -36,18 +36,18 @@ class MembersController < ApplicationController
     # DELETE /members
     def destroy
         member = Member.find(params[:id])
-        #if Member.where(member_id: member).empty?
+        if Member.where(charge_id: member).empty?
             member.destroy
             flash[:notice] = "Miembro eliminado con éxito."
             redirect_to :action => 'index'
-        #else
-        #    flash[:notice] = "el miembro a eliminar tiene elementos asociados."
-        #    redirect_to :action => 'index'
-        #end
+        else
+            flash[:notice] = "el miembro a eliminar tiene elementos asociados."
+            redirect_to :action => 'index'
+        end
     end
 
     private
     def member_params
-      params.require(:member).permit(:primer_nombre, :segundo_nombre, :primer_apellido, :segundo_apellido, :dui)
+      params.require(:member).permit(:primer_nombre, :segundo_nombre, :primer_apellido, :segundo_apellido, :dui, :charge_id)
     end
 end

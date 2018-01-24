@@ -14,4 +14,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( validate/zone.js validate/activity.js validate/collection.js
                                                   validate/tree.js validate/detail_incomes.js validate/reports/income_summary.js
-                                                  validate/reports/adquisition_tree.js validate/member.js)
+                                                  validate/reports/adquisition_tree.js validate/member.js validate/charge.js)

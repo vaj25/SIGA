@@ -27,6 +27,12 @@
         </div>
 
         <div class="field">
+            <%= f.label :cargo %><br />
+            <%= f.select :charge_id, options_from_collection_for_select(Charge.all, :id, :nombre),
+                :include_blank => 'Seleccionar Cargo' %>
+        </div>
+
+        <div class="field">
             <%= f.label :dui %><br />
             <%= f.number_field :dui %>
         </div>
