@@ -26,6 +26,7 @@
                     <td>
                         <%= link_to raw('<i class="large edit icon"></i>'), edit_general_meeting_path(general_meeting) %>
                         <%= link_to raw('<i class="large erase icon"></i>'), general_meeting_path(general_meeting), method: :delete %>
+                        <%= link_to raw('<i class="large pencil icon"></i>'), new_member_path(:general_meeting_id=>general_meeting.id) %>
                     </td>
                 </tr>
 

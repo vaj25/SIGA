@@ -37,14 +37,14 @@ class GeneralMeetingsController < ApplicationController
     def destroy
         general_meeting = GeneralMeeting.find(params[:id])
 
-        #if Collection.where(general_meeting_id: general_meeting).empty?
+        if Collection.where(activity_id: general_meeting).empty?
             general_meeting.destroy
             flash[:notice] = "La junta general ha sido eliminada con exito."
             redirect_to :action => 'index'
-        #else
-            #flash[:notice] = "La junta general a eliminar tiene elementos asociados."
-            #redirect_to :action => 'index'
-        #end
+        else
+            flash[:notice] = "La junta general a eliminar tiene elementos asociados."
+            redirect_to :action => 'index'
+        end
     end
 
     private

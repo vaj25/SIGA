@@ -6,6 +6,7 @@ class MembersController < ApplicationController
 
     #GET /members/new
     def new
+        @general_meeting_id = params[:general_meeting_id]
         @member = Member.new
     end
 
@@ -48,6 +49,6 @@ class MembersController < ApplicationController
 
     private
     def member_params
-      params.require(:member).permit(:primer_nombre, :segundo_nombre, :primer_apellido, :segundo_apellido, :dui, :charge_id)
+      params.require(:member).permit(:primer_nombre, :segundo_nombre, :primer_apellido, :segundo_apellido, :dui, :charge_id, :general_meeting_id)
     end
 end
