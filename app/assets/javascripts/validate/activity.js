@@ -14,9 +14,9 @@ $( "form[class $=_activity]" ).validate({
             required: true,
             date: true
         },
-        "activity[zone_id]": {
+        /*"activity[zone_id]": {
             required: true
-        },
+        },*/
 
     },
     messages: {
@@ -34,8 +34,8 @@ $( "form[class $=_activity]" ).validate({
             required: "La fecha final de la actividad es obligatoria.",
             date: "El valor debe ser una fecha valida."
         },
-        "activity[zone_id]": {
+        /*"activity[zone_id]": {
             required: "La zona de la actividad es obligatoria."
-        },
+        },*/
     }
 });

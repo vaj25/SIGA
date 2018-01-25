@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180124035144) do
+ActiveRecord::Schema.define(version: 20180124233157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 20180124035144) do
     t.datetime "updated_at", null: false
     t.bigint "tree_id"
     t.index ["tree_id"], name: "index_detail_incomes_on_tree_id"
+  end
+
+  create_table "general_meetings", force: :cascade do |t|
+    t.integer "num_asistentes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "activity_id"
+    t.index ["activity_id"], name: "index_general_meetings_on_activity_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -135,6 +143,7 @@ ActiveRecord::Schema.define(version: 20180124035144) do
   add_foreign_key "activities", "zones"
   add_foreign_key "collections", "activities"
   add_foreign_key "detail_incomes", "trees"
+  add_foreign_key "general_meetings", "activities"
   add_foreign_key "members", "charges"
   add_foreign_key "resource_activities", "activities"
   add_foreign_key "resource_activities_trees", "resource_activities"

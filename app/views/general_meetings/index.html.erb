@@ -1,0 +1,38 @@
+<div class="ui container">
+
+    <%= link_to "Nueva junta directiva", new_general_meeting_path, class: "ui primary button" %>
+
+    <table class="ui single line fixed table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cantidad asistentes</th>
+                <th>Actividad</th>
+                <th>Fecha</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% @general_meetings.each do |general_meeting| %>
+
+                  <tr>
+                    <td><%= general_meeting.id %></td>
+                    <td><%= general_meeting.num_asistentes %></td>
+                    <td><%= general_meeting.activity.tipo %></td>
+                    <td><%= general_meeting.activity.fecha_inicio %></td>
+                    <td><%= general_meeting.activity.descripcion%></td>
+                    <td>
+                        <%= link_to raw('<i class="large edit icon"></i>'), edit_general_meeting_path(general_meeting) %>
+                        <%= link_to raw('<i class="large erase icon"></i>'), general_meeting_path(general_meeting), method: :delete %>
+                    </td>
+                </tr>
+
+            <% end %>
+
+        </tbody>
+    </table>
+
+
+</div>

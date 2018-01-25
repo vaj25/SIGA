@@ -1,0 +1,26 @@
+<div class="ui raised very padded text container segment">
+    <%= link_to "Atras", :back %>
+    <h2 class="ui header">Nueva Junta directiva</h2>
+    <div class="ui form">
+        <%= form_for(@general_meeting) do |f| %>
+
+        <div class="field">
+            <%= f.label :num_asistentes %><br />
+            <%= f.number_field :num_asistentes%>
+        </div>
+
+        <div class="field">
+            <%= f.label :activity %><br />
+            <%= f.select :activity_id, options_from_collection_for_select(Activity.all, :id, :tipo),
+                :include_blank => 'Seleccionar Actividad' %>
+        </div>
+
+        <div class="actions">
+            <%= f.submit "Guardar", class: "ui primary button" %>
+        </div>
+
+        <% end %>
+    </div>
+</div>
+
+<%= javascript_include_tag "validate/general_meeting" %>

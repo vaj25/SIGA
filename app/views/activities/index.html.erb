@@ -15,16 +15,20 @@
             </tr>
         </thead>
         <tbody>
-                
+
             <% @activities.each do |activity| %>
 
-                  <tr> 
+                  <tr>
                     <td><%= activity.id %></td>
                     <td><%= activity.tipo %></td>
                     <td><%= activity.descripcion %></td>
                     <td><%= activity.fecha_inicio %></td>
                     <td><%= activity.fecha_fin%></td>
-                    <td><%= activity.zone.nombre%></td>
+                    <% if activity.zone.blank? %>
+                      <td>N/A</td>
+                    <% else %>
+                      <td><%= activity.zone.nombre%></td>
+                    <% end %>
                     <td>
                         <%= link_to raw('<i class="large edit icon"></i>'), edit_activity_path(activity) %>
                         <%= link_to raw('<i class="large erase icon"></i>'), activity_path(activity), method: :delete %>
