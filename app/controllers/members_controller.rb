@@ -15,7 +15,7 @@ class MembersController < ApplicationController
         @member = Member.new(member_params);
         if @member.save
             flash[:notice] = "Miembro creado con éxito."
-            redirect_to :action => 'index'
+            redirect_to :action => 'new'
         else
             render :new
         end
