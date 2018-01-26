@@ -1,0 +1,2 @@
+class MeetingMember < ApplicationRecord
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180125033807) do
+ActiveRecord::Schema.define(version: 20180126021154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,23 @@ ActiveRecord::Schema.define(version: 20180125033807) do
     t.datetime "updated_at", null: false
     t.bigint "activity_id"
     t.index ["activity_id"], name: "index_general_meetings_on_activity_id"
+  end
+
+  create_table "meeting_members", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "member_id"
+    t.bigint "meeting_id"
+    t.index ["meeting_id"], name: "index_meeting_members_on_meeting_id"
+    t.index ["member_id"], name: "index_meeting_members_on_member_id"
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.text "descripcion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "activity_id"
+    t.index ["activity_id"], name: "index_meetings_on_activity_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -146,6 +163,9 @@ ActiveRecord::Schema.define(version: 20180125033807) do
   add_foreign_key "collections", "activities"
   add_foreign_key "detail_incomes", "trees"
   add_foreign_key "general_meetings", "activities"
+  add_foreign_key "meeting_members", "meetings"
+  add_foreign_key "meeting_members", "members"
+  add_foreign_key "meetings", "activities"
   add_foreign_key "members", "charges"
   add_foreign_key "members", "general_meetings"
   add_foreign_key "resource_activities", "activities"

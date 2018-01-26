@@ -5,12 +5,12 @@
         <%= form_for(@general_meeting) do |f| %>
 
         <div class="field">
-            <%= f.label :num_asistentes %><br />
+            <%= f.label :cantidad_asistentes%><br />
             <%= f.number_field :num_asistentes%>
         </div>
 
         <div class="field">
-            <%= f.label :activity %><br />
+            <%= f.label :actividad %><br />
             <%= f.select :activity_id, options_from_collection_for_select(Activity.all, :id, :tipo),
                 :include_blank => 'Seleccionar Actividad' %>
         </div>
