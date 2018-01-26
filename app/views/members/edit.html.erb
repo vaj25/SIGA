@@ -5,6 +5,7 @@
         <%= form_for(@member) do |f| %>
 
         <%= f.hidden_field :id %>
+        <%= f.hidden_field :general_meeting_id %>
 
         <div class="field">
             <%= f.label :primer_nombre %><br />
@@ -29,7 +30,7 @@
         <div class="field">
             <%= f.label :cargo %><br />
             <%= f.select :charge_id, options_from_collection_for_select(Charge.all, :id, :nombre),
-                :include_blank => Member.find(@member.id).charge.nombre.to_s%>
+                :include_blank => 'Seleccionar Cargo' %>
         </div>
 
         <div class="field">
