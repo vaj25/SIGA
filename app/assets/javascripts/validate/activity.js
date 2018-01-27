@@ -14,10 +14,6 @@ $( "form[class $=_activity]" ).validate({
             required: true,
             date: true
         },
-        /*"activity[zone_id]": {
-            required: true
-        },*/
-
     },
     messages: {
         "activity[tipo]": {
@@ -34,8 +30,13 @@ $( "form[class $=_activity]" ).validate({
             required: "La fecha final de la actividad es obligatoria.",
             date: "El valor debe ser una fecha valida."
         },
-        /*"activity[zone_id]": {
-            required: "La zona de la actividad es obligatoria."
-        },*/
     }
+});
+
+$(function() {
+  $('#activity_zone_id').submit(function () {
+    if ($('zone_id-selector').val() == "") {
+      $('zone_id-selector').attr('disabled', true);
+    }
+  })
 });

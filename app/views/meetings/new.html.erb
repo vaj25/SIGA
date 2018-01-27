@@ -1,12 +1,12 @@
 <div class="ui raised very padded text container segment">
     <%= link_to "Atras", :back %>
-    <h2 class="ui header">Nueva Junta directiva</h2>
+    <h2 class="ui header">Nueva reunión</h2>
     <div class="ui form">
-        <%= form_for(@general_meeting) do |f| %>
+        <%= form_for(@meeting) do |f| %>
 
         <div class="field">
-            <%= f.label :cantidad_asistentes%><br />
-            <%= f.number_field :num_asistentes%>
+            <%= f.label :descripcion %><br />
+            <%= f.text_area :descripcion%>
         </div>
 
         <div class="field">
@@ -23,4 +23,4 @@
     </div>
 </div>
 
-<%= javascript_include_tag "validate/general_meeting" %>
+<%= javascript_include_tag "validate/meeting" %>

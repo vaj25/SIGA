@@ -1,0 +1,36 @@
+<div class="ui container">
+
+    <%= link_to "Nueva reunión", new_meeting_path, class: "ui primary button" %>
+
+    <table class="ui single line fixed table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descripción</th>
+                <th>Actividad</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% @meetings.each do |meeting| %>
+
+                  <tr>
+                    <td><%= meeting.id %></td>
+                    <td><%= meeting.descripcion %></td>
+                    <td><%= meeting.activity.tipo %></td>
+                    <td><%= meeting.activity.fecha_inicio %></td>
+                    <td>
+                        <%= link_to raw('<i class="large edit icon"></i>'), edit_meeting_path(meeting) %>
+                        <%= link_to raw('<i class="large erase icon"></i>'), meeting_path(meeting), method: :delete %>
+                    </td>
+                </tr>
+
+            <% end %>
+
+        </tbody>
+    </table>
+
+
+</div>
