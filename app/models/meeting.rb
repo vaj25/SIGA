@@ -1,4 +1,4 @@
 class Meeting < ApplicationRecord
-  has_many    :general_meetings
   belongs_to  :activity
+  has_many :diaries
 end

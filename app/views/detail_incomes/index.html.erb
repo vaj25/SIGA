@@ -2,7 +2,7 @@
 
     <%= link_to "Nuevo Ingreso de Árboles", new_detail_income_path, class: "ui primary button" %>
 
-    <table class="ui single line fixed table">
+    <table class="ui fixed table">
         <thead>
             <tr>
                 <th>Código</th>
@@ -13,10 +13,10 @@
              </tr>
         </thead>
         <tbody>
-                
+
             <% @detail_incomes.each do |detail_income| %>
 
-                  <tr> 
+                  <tr>
                     <td><%= detail_income.id %></td>
                     <td><%= detail_income.cantidad %></td>
                     <td>$<%= '%.2f'%detail_income.precio %></td>

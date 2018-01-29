@@ -1,19 +1,25 @@
 <div class="ui raised very padded text container segment">
     <%= link_to "Atras", :back %>
-    <h2 class="ui header">Editar reunión</h2>
+    <h2 class="ui header">Editar Punto</h2>
     <div class="ui form">
-        <%= form_for(@meeting) do |f| %>
+        <%= form_for(@diary) do |f| %>
 
         <%= f.hidden_field :id %>
+        <%= f.hidden_field :meeting_id %>
 
         <div class="field">
-            <%= f.label :descripcion %><br />
-            <%= f.text_area :descripcion%>
+            <%= f.label :Punto_a_tratar %><br />
+            <%= f.text_field :discusion %>
         </div>
 
         <div class="field">
-            <%= f.label :activity %><br />
-            <%= f.select :activity_id, options_from_collection_for_select(Activity.all, :id, :tipo, @meeting.activity_id) %>
+            <%= f.label :descripcion %><br />
+            <%= f.text_area :descripcion %>
+        </div>
+
+        <div class="field">
+            <%= f.label :acuerdo %><br />
+            <%= f.text_area :acuerdo %>
         </div>
 
         <div class="actions">
@@ -24,4 +30,4 @@
     </div>
 </div>
 
-<%= javascript_include_tag "validate/meeting" %>
+<%= javascript_include_tag "validate/diary" %>

@@ -1,0 +1,36 @@
+<div class="ui container">
+
+    <%= link_to "Atras", :controller=>"meetings", :action=>"index" %>
+
+    <table class="ui fixed table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Punto a tratar</th>
+                <th>Descripción</th>
+                <th>Acuerdo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% @diaries.each do |diary| %>
+
+                  <tr>
+                    <td><%= diary.id %></td>
+                    <td><%= diary.discusion %></td>
+                    <td><%= diary.descripcion %></td>
+                    <td><%= diary.acuerdo%></td>
+                    <td>
+                        <%= link_to raw('<i class="large edit icon"></i>'), edit_diary_path(diary) %>
+                        <%= link_to raw('<i class="large erase icon"></i>'), diary_path(diary), method: :delete %>
+                    </td>
+                </tr>
+
+            <% end %>
+
+        </tbody>
+    </table>
+
+
+</div>

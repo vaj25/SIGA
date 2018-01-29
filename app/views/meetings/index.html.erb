@@ -2,7 +2,7 @@
 
     <%= link_to "Nueva reunión", new_meeting_path, class: "ui primary button" %>
 
-    <table class="ui single line fixed table">
+    <table class="ui fixed table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -26,6 +26,8 @@
                         <%= link_to raw('<i class="large erase icon"></i>'), meeting_path(meeting), method: :delete %>
                         <%= link_to raw('<i class="large add user icon"></i>'), new_meeting_member_path(:meeting_id=>meeting.id) %>
                         <%= link_to raw('<i class="large browser icon"></i>'), :controller=>"meeting_members", :action=>"index" %>
+                        <%= link_to raw('<i class="large add to calendar icon"></i>'), new_diary_path(:meeting_id=>meeting.id) %>
+                        <%= link_to raw('<i class="large calendar outline icon"></i>'), :controller=>"diaries", :action=>"index" %>
                     </td>
                 </tr>
 
