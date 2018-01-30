@@ -2,7 +2,7 @@
 
     <%= link_to "Nueva reunión", new_meeting_path, class: "ui primary button" %>
 
-    <table class="ui fixed table">
+    <table class="ui celled padded table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -22,12 +22,18 @@
                     <td><%= meeting.activity.tipo %></td>
                     <td><%= meeting.activity.fecha_inicio %></td>
                     <td>
-                        <%= link_to raw('<i class="large edit icon"></i>'), edit_meeting_path(meeting) %>
-                        <%= link_to raw('<i class="large erase icon"></i>'), meeting_path(meeting), method: :delete %>
-                        <%= link_to raw('<i class="large add user icon"></i>'), new_meeting_member_path(:meeting_id=>meeting.id) %>
-                        <%= link_to raw('<i class="large browser icon"></i>'), :controller=>"meeting_members", :action=>"index" %>
-                        <%= link_to raw('<i class="large add to calendar icon"></i>'), new_diary_path(:meeting_id=>meeting.id) %>
-                        <%= link_to raw('<i class="large calendar outline icon"></i>'), :controller=>"diaries", :action=>"index" %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted="" data-position="right left" data-offset="50">
+<i class="large edit icon"></i></div>'), edit_meeting_path(meeting) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted="" data-position="right left">
+<i class="large erase icon"></i></div>'), meeting_path(meeting), method: :delete %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Añadir miembro" data-inverted="" data-position="right left">
+<i class="large add user icon"></i></div>'), new_meeting_member_path(:meeting_id=>meeting.id) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Ver miembros" data-inverted="" data-position="right left">
+<i class="large browser icon"></i></div>'), :controller=>"meeting_members", :action=>"index" %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Agenda" data-inverted="" data-position="right left">
+<i class="large add to calendar icon"></i></div>'), new_diary_path(:meeting_id=>meeting.id) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Ver agenda" data-inverted="" data-position="right left">
+<i class="large calendar outline icon"></i></div>'), :controller=>"diaries", :action=>"index" %>
                     </td>
                 </tr>
 

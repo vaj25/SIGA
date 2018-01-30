@@ -20,8 +20,10 @@
                     <td><%= charge.nombre %></td>
                     <td><%= charge.descripcion %></td>
                     <td>
-                        <%= link_to raw('<i class="large edit icon"></i>'), edit_charge_path(charge) %>
-                        <%= link_to raw('<i class="large erase icon"></i>'), charge_path(charge), method: :delete %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted="" data-position="right left" data-offset="50">
+<i class="large edit icon"></i></div>'), edit_charge_path(charge) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted="" data-position="right left">
+<i class="large erase icon"></i></div>'), charge_path(charge), method: :delete %>
                     </td>
                 </tr>
 

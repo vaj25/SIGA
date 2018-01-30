@@ -14,18 +14,22 @@
             </tr>
         </thead>
         <tbody>
-                
+
             <% @resource_activities.each do |resource_activity| %>
 
-                  <tr> 
+                  <tr>
                     <td><%= resource_activity.id %></td>
                     <td><%= resource_activity.descripcion %></td>
                     <td><%= '%.2f'%resource_activity.precio %></td>
                     <td><%= resource_activity.cantidad %></td>
                     <td><%= resource_activity.activity.descripcion %></td>
                     <td>
-                        <%= link_to raw('<i class="large edit icon"></i>'), edit_resource_activity_path(resource_activity) %>
-                        <%= link_to raw('<i class="large erase icon"></i>'), resource_activity_path(resource_activity), method: :delete %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted=""
+                        data-position="right left" data-offset="50"><i class="large edit icon"></i></div>'),
+                         edit_resource_activity_path(resource_activity) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted=""
+                        data-position="right left"><i class="large erase icon"></i></div>'),
+                         resource_activity_path(resource_activity), method: :delete %>
                     </td>
                 </tr>
 

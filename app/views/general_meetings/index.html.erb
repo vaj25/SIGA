@@ -2,7 +2,7 @@
 
     <%= link_to "Nueva junta directiva", new_general_meeting_path, class: "ui primary button" %>
 
-    <table class="ui fixed table">
+    <table class="ui celled padded table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -24,10 +24,14 @@
                     <td><%= general_meeting.activity.fecha_inicio %></td>
                     <td><%= general_meeting.activity.descripcion%></td>
                     <td>
-                        <%= link_to raw('<i class="large edit icon"></i>'), edit_general_meeting_path(general_meeting) %>
-                        <%= link_to raw('<i class="large erase icon"></i>'), general_meeting_path(general_meeting), method: :delete %>
-                        <%= link_to raw('<i class="large add user icon"></i>'), new_member_path(:general_meeting_id=>general_meeting.id) %>
-                        <%= link_to raw('<i class="large browser icon"></i>'), :controller=>"members", :action=>"index" %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted="" data-position="right left" data-offset="50">
+<i class="large edit icon"></i></div>'), edit_general_meeting_path(general_meeting) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted="" data-position="right left">
+<i class="large erase icon"></i></div>'), general_meeting_path(general_meeting), method: :delete %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Añadir" data-inverted="" data-position="right left" data-offset="50">
+<i class="large add user icon"></i></div>'), new_member_path(:general_meeting_id=>general_meeting.id) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Ver" data-inverted="" data-position="right left" data-offset="50">
+<i class="large browser icon"></i></div>'), :controller=>"members", :action=>"index" %>
                     </td>
                 </tr>
 

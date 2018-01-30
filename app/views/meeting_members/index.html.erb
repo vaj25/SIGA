@@ -26,8 +26,10 @@
                     <td><%= meeting_member.member.segundo_apellido%></td>
                     <td><%= meeting_member.member.charge.nombre%></td>
                     <td>
-                        <%= link_to raw('<i class="large edit icon"></i>'), edit_meeting_member_path(meeting_member) %>
-                        <%= link_to raw('<i class="large erase icon"></i>'), meeting_member_path(meeting_member), method: :delete %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted="" data-position="right left" data-offset="50">
+<i class="large edit icon"></i></div>'), edit_meeting_member_path(meeting_member) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted="" data-position="right left">
+<i class="large erase icon"></i></div>'), meeting_member_path(meeting_member), method: :delete %>
                     </td>
                 </tr>
 

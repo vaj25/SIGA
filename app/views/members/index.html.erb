@@ -28,8 +28,10 @@
                     <td><%= member.dui%></td>
                     <td><%= member.charge.nombre%></td>
                     <td>
-                        <%= link_to raw('<i class="large edit icon"></i>'), edit_member_path(member) %>
-                        <%= link_to raw('<i class="large erase icon"></i>'), member_path(member), method: :delete %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted="" data-position="right left" data-offset="50">
+                        <i class="large edit icon"></i></div>'), edit_member_path(member) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted="" data-position="right left">
+                        <i class="large erase icon"></i></div>'), member_path(member), method: :delete %>
                     </td>
                 </tr>
 

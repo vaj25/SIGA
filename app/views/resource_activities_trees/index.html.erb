@@ -8,22 +8,24 @@
                 <th>Código</th>
                 <th>Cantidad</th>
                 <th>Arbol</th>
-                <th>Recurso</th>                
+                <th>Recurso</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-                
+
             <% @resource_activities_trees.each do |resource_activities_tree| %>
 
-                  <tr> 
+                  <tr>
                     <td><%= resource_activities_tree.id %></td>
                     <td><%= resource_activities_tree.cantidad %></td>
                     <td><%= resource_activities_tree.tree.nombre_comun %></td>
-                    <td><%= resource_activities_tree.resource_activity.descripcion %></td>                
+                    <td><%= resource_activities_tree.resource_activity.descripcion %></td>
                     <td>
-                        <%= link_to raw('<i classs="large edit icon"></i>'), edit_resource_activities_tree_path(resource_activities_tree) %>
-                        <%= link_to raw('<i class="large erase icon"></i>'), resource_activities_tree_path(resource_activities_tree), method: :delete %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted=""
+                        data-position="right left" data-offset="50"><i class="large edit icon"></i></div>'), edit_resource_activities_tree_path(resource_activities_tree) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted="" data-position="right left">
+<i class="large erase icon"></i></div>'), resource_activities_tree_path(resource_activities_tree), method: :delete %>
                     </td>
                 </tr>
 
