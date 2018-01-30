@@ -1,3 +1,29 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+<h1>Bienvenid@ al Sistema informático para la gestión de actividades de la ALECU</h1>
+<p><div class="grupo1">
+  <%= link_to raw('<div class="ui massive icon button">
+  <i class="huge browser icon"></i><h3>Actividades</h3></div>'), :controller=>"activities", :action=>"index" %>
+  <%= link_to raw('<div class="ui massive icon button">
+  <i class="huge users icon"></i><h3>Reuniones</h3></div>'), :controller=>"meetings", :action=>"index" %>
+  <%= link_to raw('<div class="ui massive icon button">
+  <i class="huge handshake icon"></i><h3>Junta directiva</h3></div>'), :controller=>"general_meetings", :action=>"index" %>
+  <%= link_to raw('<div class="ui massive icon button">
+  <i class="huge sitemap icon"></i><h3>Cargos</h3></div>'), :controller=>"charges", :action=>"index" %>
+  <%= link_to raw('<div class="ui massive icon button">
+  <i class="huge world icon"></i><h3>Zonas</h3></div>'), :controller=>"zones", :action=>"index" %>
+</div></p>
+<p><div class="grupo2">
+  <%= link_to raw('<div class="ui massive icon button">
+  <i class="huge dollar icon"></i><h3>Recaudación</h3></div>'), :controller=>"collections", :action=>"index" %>
+  <%= link_to raw('<div class="ui massive icon button">
+  <i class="huge tree icon"></i><h3>Árboles</h3></div>'), :controller=>"trees", :action=>"index" %>
+  <%= link_to raw('<div class="ui massive icon button">
+  <i class="huge add user icon"></i><h3>Usuarios</h3></div>'), show_users_registration_path, method: :get %>
+  <%= link_to raw('<div class="ui massive icon button">
+  <i class="huge bar chart icon"></i><h3>Reportes</h3></div>') %>
+
+</div></p>
+
+
+
+
 <a href="partials/_navigation"></a>
