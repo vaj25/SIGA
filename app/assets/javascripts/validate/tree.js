@@ -9,7 +9,7 @@ $( "form[class $=_tree]" ).validate({
 
     },
     messages: {
-        "tree[nombre]": {
+        "tree[nombre_comun]": {
             required: "El nombre común del árbol es obligatorio."
         },
         "tree[nombre_cientifico]": {

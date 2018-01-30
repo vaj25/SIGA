@@ -18,9 +18,10 @@
   <div class="container">
 
     <% if notice %>
-      <p class="ui message">
-        <%= notice %>
-      </p>
+      <div class="ui blue message">
+        <i class="close icon"></i>
+        <p><%= notice %></p>
+      </div>
     <% end %>
 
     <% if alert %>

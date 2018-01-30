@@ -31,7 +31,6 @@ body {
         -ms-flex-direction: column;
     height: 100%;
     min-width: 100%;
-    border: #262422 solid 2px;
 }
 
 nav {
@@ -78,6 +77,13 @@ nav ul li ul {
     margin-left: 11em;
     margin-bottom: -3em;
     padding-bottom: 5em;
+}
+
+.error {
+    padding: 0.5em;
+    background: #C23E4B;
+    border: solid #262422 1px;
+    border-radius: 0.25em;
 }
 
 footer {

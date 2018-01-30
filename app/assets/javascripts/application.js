@@ -37,4 +37,21 @@ $(document).on('turbolinks:load' ,function () {
     $(".pagination em").each(function () {
         $(this).addClass("item");
     });
+
+    var message = document.body.querySelector('.message');
+
+    if ( $.contains( document.body, message ) ) {
+        
+        $(".message .close").on('click', function () {
+            $(this)
+                .closest('.message')
+                .transition('slide')
+        });
+
+        setTimeout( function () {
+            $(".message").slideUp();
+        }, 3000);
+
+    }
+
 });
