@@ -1,14 +1,10 @@
 <div class="ui raised very padded text container segment">
-    <%= link_to "Atras", :back %>
+    <%= link_to "Atras", :controller=>"activities", :action=>"index" %>
     <h2 class="ui header">Nuevo Recurso</h2>
     <div class="ui form">
         <%= form_for(@resource_activity) do |f| %>
 
-        <div class="field">
-            <%= f.label :actividad %><br />
-            <%= f.select :activity_id, options_from_collection_for_select(Activity.all, :id, :descripcion),
-            :include_blank => 'Seleccionar Actividad' %>
-        </div>
+        <%= f.hidden_field :activity_id, :value=>@activity_id %>
 
         <div class="field">
             <%= f.label :descripción %><br />
@@ -25,9 +21,6 @@
             <%= f.label :cantidad %><br />
             <%= f.number_field :cantidad %>
         </div>
-
-        
-
 
         <div class="actions">
             <%= f.submit "Guardar", class: "ui primary button" %>

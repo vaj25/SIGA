@@ -24,14 +24,18 @@
                     <td><%= general_meeting.activity.fecha_inicio %></td>
                     <td><%= general_meeting.activity.descripcion%></td>
                     <td>
-                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted="" data-position="right left" data-offset="50">
-<i class="large edit icon"></i></div>'), edit_general_meeting_path(general_meeting) %>
-                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted="" data-position="right left">
-<i class="large erase icon"></i></div>'), general_meeting_path(general_meeting), method: :delete %>
-                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Añadir miembro" data-inverted="" data-position="right left" data-offset="50">
-<i class="large add user icon"></i></div>'), new_member_path(:general_meeting_id=>general_meeting.id) %>
-                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Ver miembros" data-inverted="" data-position="right left" data-offset="50">
-<i class="large browser icon"></i></div>'), :controller=>"members", :action=>"index" %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted=""
+                         data-position="right left" data-offset="50"><i class="large edit icon"></i></div>'),
+                          edit_general_meeting_path(general_meeting) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted=""
+                        data-position="right left"><i class="large erase icon"></i></div>'),
+                         general_meeting_path(general_meeting), method: :delete %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Añadir miembro" data-inverted=""
+                         data-position="right left" data-offset="50"><i class="large add user icon"></i></div>'),
+                          new_member_path(:general_meeting_id=>general_meeting.id) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Ver miembros" data-inverted=""
+                        data-position="right left" data-offset="50"><i class="large browser icon"></i></div>'),
+                        :controller=>"members", :action=>"index" %>
                     </td>
                 </tr>
 
@@ -39,6 +43,6 @@
 
         </tbody>
     </table>
-    <%= link_to "Atras", :back %>
+    <%= link_to "Atras", :controller=>"dashboard", :action=>"index" %>
 
 </div>

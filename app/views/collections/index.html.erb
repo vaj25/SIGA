@@ -13,11 +13,11 @@
             </tr>
         </thead>
         <tbody>
-                
+
             <% @collections.each do |collection| %>
 
-                  <tr> 
-                    <td><%= collection.id %></td>               
+                  <tr>
+                    <td><%= collection.id %></td>
                     <td><%= collection.concepto %></td>
                     <td><%= collection.descripcion %></td>
                     <td><%= collection.activity.tipo%></td>
@@ -33,6 +33,6 @@
 
         </tbody>
     </table>
-
+    <%= link_to "Atras", :controller=>"dashboard", :action=>"index" %>
 
 </div>

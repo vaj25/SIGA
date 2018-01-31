@@ -2,7 +2,7 @@
 
     <%= link_to "Nueva Actividad", new_activity_path, class: "ui primary button" %>
 
-    <table class="ui fixed table">
+    <table class="ui celled padded table">
         <thead>
             <tr>
                 <th>Código</th>
@@ -30,10 +30,19 @@
                       <td><%= activity.zone.nombre%></td>
                     <% end %>
                     <td>
-                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted="" data-position="right left" data-offset="50">
-<i class="large edit icon"></i></div>'), edit_activity_path(activity) %>
-                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted="" data-position="right left">
-<i class="large erase icon"></i></div>'), activity_path(activity), method: :delete %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted=""
+                        data-position="right left" data-offset="50"><i class="large edit icon"></i></div>'),
+                        edit_activity_path(activity) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted=""
+                        data-position="right left"><i class="large erase icon"></i></div>'),
+                         activity_path(activity), method: :delete %>
+                         <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Añadir recurso" data-inverted=""
+                         data-position="right left"><i class="large puzzle icon"></i></div>'),
+                          new_resource_activity_path(:activity_id=>activity.id) %>
+                         <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Ver recursos" data-inverted=""
+                         data-position="right left"><i class="large browser icon"></i></div>'),
+                          :controller=>"resource_activities", :action=>"index" %>
+
                     </td>
                 </tr>
 
@@ -41,7 +50,7 @@
 
         </tbody>
     </table>
-        <%= link_to "Atras", :back %>
+        <%= link_to "Atras", :controller=>"dashboard", :action=>"index" %>
 
 
 </div>

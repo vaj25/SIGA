@@ -1,8 +1,8 @@
 <div class="ui container">
 
-    <%= link_to "Nuevo Recurso", new_resource_activity_path, class: "ui primary button" %>
+    <%= link_to "Atras", :controller=>"activities", :action=>"index" %>
 
-    <table class="ui single line fixed table">
+    <table class="ui celled padded table">
         <thead>
             <tr>
                 <th>Código</th>
@@ -30,6 +30,12 @@
                         <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted=""
                         data-position="right left"><i class="large erase icon"></i></div>'),
                          resource_activity_path(resource_activity), method: :delete %>
+                         <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Especificar árboles" data-inverted=""
+                         data-position="right left"><i class="large tree icon"></i></div>'),
+                          new_resource_activities_tree_path(:resource_activity_id=>resource_activity.id) %>
+                         <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Ver árboles" data-inverted=""
+                         data-position="right left"><i class="large browser icon"></i></div>'),
+                          :controller=>"resource_activities_trees", :action=>"index" %>
                     </td>
                 </tr>
 

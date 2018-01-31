@@ -6,6 +6,7 @@ class ResourceActivitiesController < ApplicationController
 
     #GET /resource activities/new
     def new
+        @activity_id = params[:activity_id]
         @resource_activity = ResourceActivity.new
     end
 
@@ -13,7 +14,7 @@ class ResourceActivitiesController < ApplicationController
     def create
         @resource_activity = ResourceActivity.new(resource_activity_params);
         if @resource_activity.save
-            redirect_to :action => 'index'
+            redirect_to :action => 'new'
         else
             render :new
         end

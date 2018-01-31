@@ -7,6 +7,7 @@ class ResourceActivitiesTreesController < ApplicationController
 
     #GET /resource activities tree/new
     def new
+        @resource_activity_id = params[:resource_activity_id]
         @resource_activities_tree = ResourceActivitiesTree.new
     end
 

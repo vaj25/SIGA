@@ -4,18 +4,14 @@
     <div class="ui form">
         <%= form_for(@resource_activities_tree) do |f| %>
 
+          <%= f.hidden_field :resource_activity_id, :value=>@resource_activity_id %>
+
         <div class="field">
             <%= f.label :tree %><br />
             <%= f.select :tree_id, options_from_collection_for_select(Tree.all, :id, :nombre_comun),
             :include_blank => 'Seleccionar Arbol' %>
         </div>
 
-        <div class="field">
-            <%= f.label :resource_activity %><br />
-            <%= f.select :resource_activity_id, options_from_collection_for_select(ResourceActivity.all, :id, :descripcion),
-            :include_blank => 'Seleccionar Actividad' %>
-        </div>
-      
         <div class="field">
             <%= f.label :cantidad %><br />
             <%= f.number_field :cantidad %>
