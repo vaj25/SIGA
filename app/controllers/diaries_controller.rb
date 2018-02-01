@@ -15,7 +15,7 @@ class DiariesController < ApplicationController
         @diary = Diary.new(diary_params);
         if @diary.save
             flash[:notice] = "Punto creado con éxito."
-            redirect_to :action => 'new'
+            redirect_to :action => 'index'
         else
             render :new
         end

@@ -6,6 +6,7 @@ class DetailIncomesController < ApplicationController
 
     #GET /detail_incomes/new
     def new
+        @tree_id = params[:tree_id]
         @detail_income = DetailIncome.new
     end
 

@@ -14,7 +14,7 @@ class ResourceActivitiesController < ApplicationController
     def create
         @resource_activity = ResourceActivity.new(resource_activity_params);
         if @resource_activity.save
-            redirect_to :action => 'new'
+            redirect_to :action => 'index'
         else
             render :new
         end

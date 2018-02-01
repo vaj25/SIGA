@@ -15,7 +15,7 @@ class MeetingMembersController < ApplicationController
         @meeting_member = MeetingMember.new(meeting_member_params);
         if @meeting_member.save
             flash[:notice] = "Miembro agregado a la reunión con éxito."
-            redirect_to :action => 'new'
+            redirect_to :action => 'index'
         else
             render :new
         end

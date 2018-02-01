@@ -26,10 +26,17 @@
                     <td><%= tree.cantidad %></td>
                     <td>$<%= '%.2f'%tree.precio %></td>
                     <td>
-                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted="" data-position="right left" data-offset="50">
-<i class="large edit icon"></i></div>'), edit_tree_path(tree) %>
-                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted="" data-position="right left">
-<i class="large erase icon"></i></div>'), tree_path(tree), method: :delete %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted=""
+                        data-position="right left" data-offset="50"><i class="large edit icon"></i></div>'),
+                        edit_tree_path(tree) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted=""
+                        data-position="right left"><i class="large erase icon"></i></div>'), tree_path(tree), method: :delete %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Ingresar árboles" data-inverted=""
+                         data-position="right left" data-offset="50"><i class="large add square icon"></i></div>'),
+                          new_detail_income_path(:tree_id=>tree.id) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Ver ingresos" data-inverted=""
+                        data-position="right left" data-offset="50"><i class="large browser icon"></i></div>'),
+                        :controller=>"detail_incomes", :action=>"index" %>
                     </td>
                 </tr>
 

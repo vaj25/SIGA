@@ -5,12 +5,7 @@
         <%= form_for(@detail_income) do |f| %>
 
         <%= f.hidden_field :id %>
-
-        <div class="field">
-            <%= f.label :tree %><br />
-            <%= f.select :tree_id, options_from_collection_for_select(Tree.all, :id, :nombre_comun),
-                :include_blank => 'Seleccionar Árbol' %>
-        </div>
+        <%= f.hidden_field :tree_id %>
 
         <div class="field">
             <%= f.label :Cantidad %><br />
