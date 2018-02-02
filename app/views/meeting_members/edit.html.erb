@@ -9,7 +9,7 @@
 
         <div class="field">
             <%= f.label :miembro %><br/>
-            <%= f.select :member_id, options_from_collection_for_select(Member.all, :id, :primer_nombre, @meeting_member.member_id) %>
+            <%= f.select :member_id, options_from_collection_for_select(Member.all, :id, :nombre_completo, @meeting_member.member_id) %>
         </div>
 
         <div class="actions">

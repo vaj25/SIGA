@@ -6,6 +6,9 @@ class MeetingMembersController < ApplicationController
 
     #GET /meeting_members/new
     def new
+        @members = Member.where(members: { activo: true }).select("members.primer_nombre, members.segundo_nombre, members.primer_apellido,
+        members.segundo_apellido, members.id")
+
         @meeting_id = params[:meeting_id]
         @meeting_member = MeetingMember.new
     end

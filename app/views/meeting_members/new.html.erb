@@ -5,10 +5,10 @@
         <%= form_for(@meeting_member) do |f| %>
 
         <%= f.hidden_field :meeting_id, :value=>@meeting_id %>
-        
+
         <div class="field">
             <%= f.label :miembro %><br />
-            <%= f.select :member_id, options_from_collection_for_select(Member.all, :id, :primer_nombre),
+            <%= f.select :member_id, options_from_collection_for_select(@members, :id, :nombre_completo),
                 :include_blank => 'Seleccionar miembro' %>
         </div>
 

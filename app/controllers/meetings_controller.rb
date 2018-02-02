@@ -6,6 +6,7 @@ class MeetingsController < ApplicationController
 
     #GET /meetings/new
     def new
+        @activities= Activity.where(activities: { tipo: "Reunión" })
         @meeting = Meeting.new
     end
 
