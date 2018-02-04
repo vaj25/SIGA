@@ -29,7 +29,7 @@
                          edit_resource_activity_path(resource_activity) %>
                         <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted=""
                         data-position="right left"><i class="large erase icon"></i></div>'),
-                         resource_activity_path(resource_activity), method: :delete %>
+                         resource_activity_path(resource_activity, :activity_id=>resource_activity.activity_id), method: :delete %>
                          <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Especificar árboles" data-inverted=""
                          data-position="right left"><i class="large tree icon"></i></div>'),
                           new_resource_activities_tree_path(:resource_activity_id=>resource_activity.id) %>

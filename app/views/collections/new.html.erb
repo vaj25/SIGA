@@ -13,10 +13,10 @@
             <%= f.label :descripción %><br />
             <%= f.text_area :descripcion %>
         </div>
-        
+
         <div class="field">
             <%= f.label :actividad %><br />
-            <%= f.select :activity_id, options_from_collection_for_select(Activity.all, :id, :tipo), 
+            <%= f.select :activity_id, options_from_collection_for_select(@activities, :id, :campos_utiles), 
                 :include_blank => 'Seleccionar Actividad'%>
         </div>
 

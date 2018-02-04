@@ -6,6 +6,7 @@ class CollectionsController < ApplicationController
 
     #GET /collections/new
     def new
+        @activities= Activity.where(activities: { tipo: "Recaudación de fondos" })
         @collection = Collection.new
     end
 
