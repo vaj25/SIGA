@@ -1,6 +1,6 @@
 <div class="ui container">
 
-    <%= link_to "Atras", :controller=>"resource_activities", :action=>"index" %>
+    <%= link_to "Atras", :controller=>"resource_activities", :action=>"index", :activity_id=>params[:activity_id] %>
 
     <table class="ui single line fixed table">
         <thead>
@@ -23,9 +23,12 @@
                     <td><%= resource_activities_tree.resource_activity.descripcion %></td>
                     <td>
                         <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted=""
-                        data-position="right left" data-offset="50"><i class="large edit icon"></i></div>'), edit_resource_activities_tree_path(resource_activities_tree) %>
-                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted="" data-position="right left">
-<i class="large erase icon"></i></div>'), resource_activities_tree_path(resource_activities_tree), method: :delete %>
+                        data-position="right left" data-offset="50"><i class="large edit icon"></i></div>'),
+                        edit_resource_activities_tree_path(resource_activities_tree, :activity_id=>resource_activities_tree.resource_activity.activity_id) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted=""
+                        data-position="right left"><i class="large erase icon"></i></div>'), resource_activities_tree_path(resource_activities_tree,
+                         :resource_activity_id=>resource_activities_tree.resource_activity_id,
+                         :activity_id=>resource_activities_tree.resource_activity.activity_id), method: :delete %>
                     </td>
                 </tr>
 

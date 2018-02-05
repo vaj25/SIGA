@@ -5,6 +5,7 @@
         <%= form_for(@resource_activities_tree) do |f| %>
 
           <%= f.hidden_field :resource_activity_id, :value=>@resource_activity_id %>
+          <%= f.hidden_field :activity_id, :value=>@activity_id %>
 
         <div class="field">
             <%= f.label :tree %><br />

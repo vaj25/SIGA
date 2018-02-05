@@ -32,10 +32,11 @@
                          resource_activity_path(resource_activity, :activity_id=>resource_activity.activity_id), method: :delete %>
                          <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Especificar árboles" data-inverted=""
                          data-position="right left"><i class="large tree icon"></i></div>'),
-                          new_resource_activities_tree_path(:resource_activity_id=>resource_activity.id) %>
+                          new_resource_activities_tree_path(:resource_activity_id=>resource_activity.id, :activity_id=>resource_activity.activity_id) %>
                          <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Ver árboles" data-inverted=""
                          data-position="right left"><i class="large browser icon"></i></div>'),
-                          :controller=>"resource_activities_trees", :action=>"index" %>
+                          :controller=>"resource_activities_trees", :action=>"index", :resource_activity_id=>resource_activity.id,
+                          :activity_id=>resource_activity.activity_id %>
                     </td>
                 </tr>
 
