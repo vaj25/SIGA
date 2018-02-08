@@ -1,7 +1,7 @@
 class DiariesController < ApplicationController
     #GET /diaries
     def index
-        @diaries = Diary.all.order('id DESC')
+        @diaries= Diary.where(diaries: { meeting_id: params[:meeting_id] })
     end
 
     #GET /diaries/new
@@ -15,7 +15,7 @@ class DiariesController < ApplicationController
         @diary = Diary.new(diary_params);
         if @diary.save
             flash[:notice] = "Punto creado con éxito."
-            redirect_to :action => 'index'
+            redirect_to :action => 'index', :meeting_id=>params[:diary][:meeting_id]
         else
             render :new
         end
@@ -31,7 +31,7 @@ class DiariesController < ApplicationController
         diary = Diary.find(params[:diary][:id])
         diary.update_attributes(diary_params)
         flash[:notice] = "punto editado con éxito."
-        redirect_to :action => 'index'
+        redirect_to :action => 'index', :meeting_id=>params[:diary][:meeting_id]
     end
 
     # DELETE /diaries
@@ -40,7 +40,7 @@ class DiariesController < ApplicationController
         #if Diary.where(charge_id: diary).empty?
             diary.destroy
             flash[:notice] = "Punto eliminado con éxito."
-            redirect_to :action => 'index'
+            redirect_to :action => 'index', :meeting_id=>params[:meeting_id]
         #else
         #    flash[:notice] = "el miembro a eliminar tiene elementos asociados."
         #    redirect_to :action => 'index'

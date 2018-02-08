@@ -32,11 +32,3 @@ $( "form[class $=_activity]" ).validate({
         },
     }
 });
-
-$(function() {
-  $('#activity_zone_id').submit(function () {
-    if ($('zone_id-selector').val() == "") {
-      $('zone_id-selector').attr('disabled', true);
-    }
-  })
-});

@@ -7,11 +7,11 @@
           <%= f.hidden_field :resource_activity_id, :value=>@resource_activity_id %>
           <%= f.hidden_field :activity_id, :value=>@activity_id %>
 
-        <div class="field">
-            <%= f.label :tree %><br />
-            <%= f.select :tree_id, options_from_collection_for_select(Tree.all, :id, :nombre_comun),
-            :include_blank => 'Seleccionar Arbol' %>
-        </div>
+          <div class="field">
+            <%= f.label :arbol %><br />
+            <%= f.select("tree_id", Tree.all.collect {|p| [ p.nombre_comun, p.id ] }, { include_blank: "Seleccione árbol" },
+             { :class => 'ui search dropdown'}) %>
+          </div>
 
         <div class="field">
             <%= f.label :cantidad %><br />
@@ -25,3 +25,5 @@
         <% end %>
     </div>
 </div>
+
+<%= javascript_include_tag "validate/resource_activity_tree" %>
