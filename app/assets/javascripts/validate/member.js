@@ -22,3 +22,7 @@ $( "form[class $=_member]" ).validate({
         },
     }
 });
+
+$('.ui.checkbox')
+  .checkbox()
+;

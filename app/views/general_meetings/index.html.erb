@@ -35,7 +35,7 @@
                           new_member_path(:general_meeting_id=>general_meeting.id) %>
                         <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Ver miembros" data-inverted=""
                         data-position="right left" data-offset="50"><i class="large browser icon"></i></div>'),
-                        :controller=>"members", :action=>"index" %>
+                        :controller=>"members", :action=>"index", :general_meeting_id=>general_meeting.id %>
                     </td>
                 </tr>
 

@@ -12,6 +12,7 @@
                 <th>Segundo apellido</th>
                 <th>DUI</th>
                 <th>Cargo</th>
+                <th>Estado</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -27,11 +28,16 @@
                     <td><%= member.segundo_apellido%></td>
                     <td><%= member.dui%></td>
                     <td><%= member.charge.nombre%></td>
+                    <% if member.activo %>
+                      <td>Activo</td>
+                    <% else %>
+                      <td>No activo</td>
+                    <% end %>
                     <td>
                         <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted="" data-position="right left" data-offset="50">
-                        <i class="large edit icon"></i></div>'), edit_member_path(member) %>
+                        <i class="large edit icon"></i></div>'), edit_member_path(member, :general_meeting_id=>member.general_meeting_id) %>
                         <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted="" data-position="right left">
-                        <i class="large erase icon"></i></div>'), member_path(member), method: :delete %>
+                        <i class="large erase icon"></i></div>'), member_path(member, :general_meeting_id=>member.general_meeting_id), method: :delete %>
                     </td>
                 </tr>
 
