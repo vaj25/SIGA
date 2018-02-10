@@ -36,7 +36,7 @@
                           new_detail_income_path(:tree_id=>tree.id) %>
                         <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Ver ingresos" data-inverted=""
                         data-position="right left" data-offset="50"><i class="large browser icon"></i></div>'),
-                        :controller=>"detail_incomes", :action=>"index" %>
+                        :controller=>"detail_incomes", :action=>"index", :tree_id=>tree.id %>
                     </td>
                 </tr>
 

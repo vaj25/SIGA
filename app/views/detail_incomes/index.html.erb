@@ -22,10 +22,12 @@
                     <td>$<%= '%.2f'%detail_income.precio %></td>
                     <td><%= detail_income.tree.nombre_comun %></td>
                     <td>
-                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted="" data-position="right left" data-offset="50">
-<i class="large edit icon"></i></div>'), edit_detail_income_path(detail_income) %>
-                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted="" data-position="right left">
-<i class="large erase icon"></i></div>'), detail_income_path(detail_income), method: :delete %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted=""
+                        data-position="right left" data-offset="50"><i class="large edit icon"></i></div>'),
+                         edit_detail_income_path(detail_income, :tree_id=>detail_income.tree_id) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted=""
+                         data-position="right left"><i class="large erase icon"></i></div>'),
+                          detail_income_path(detail_income, :tree_id=>detail_income.tree_id), method: :delete %>
                     </td>
                 </tr>
 
