@@ -1,0 +1,44 @@
+<div class="ui container">
+
+    <%= link_to "Nuevo contacto", new_contact_path, class: "ui primary button" %>
+
+    <table class="ui celled padded table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Correo electrónico</th>
+                <th>Celular</th>
+                <th>Telefono</th>
+                <th>Organización</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% @contacts.each do |contact| %>
+
+                  <tr>
+                    <td><%= contact.id %></td>
+                    <td><%= contact.nombre %></td>
+                    <td><%= contact.email %></td>
+                    <td><%= contact.celular %></td>
+                    <td><%= contact.fijo %></td>
+                    <td><%= contact.organizacion %></td>
+                    <td>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted=""
+                         data-position="right left" data-offset="50"><i class="large edit icon"></i></div>'),
+                         edit_contact_path(contact) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted=""
+                        data-position="right left"><i class="large erase icon"></i></div>'),
+                        contact_path(contact), method: :delete %>            
+                    </td>
+                </tr>
+
+            <% end %>
+
+        </tbody>
+    </table>
+<%= link_to "Atras", :controller=>"dashboard", :action=>"index" %>
+
+</div>

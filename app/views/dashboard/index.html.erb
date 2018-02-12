@@ -19,6 +19,8 @@
   <%= link_to raw('<div class="ui massive icon button">
   <i class="huge add user icon"></i><h3>Usuarios</h3></div>'), show_users_registration_path, method: :get %>
   <%= link_to raw('<div class="ui massive icon button">
+  <i class="huge address book outline icon"></i><h3>Contactos</h3></div>'), :controller=>"contacts", :action=>"index" %>
+  <%= link_to raw('<div class="ui massive icon button">
   <i class="huge bar chart icon"></i><h3>Reportes</h3></div>'), :controller=>"show_reports", :action=>"index" %>
 
 </div></p>

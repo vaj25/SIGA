@@ -1,0 +1,42 @@
+<div class="ui raised very padded text container segment">
+    <%= link_to "Atras", :back %>
+    <h2 class="ui header">Editar Contacto</h2>
+    <div class="ui form">
+        <%= form_for(@contact) do |f| %>
+
+        <%= f.hidden_field :id %>
+
+        <div class="field">
+            <%= f.label :nombre %><br />
+            <%= f.text_field :nombre%>
+        </div>
+
+        <div class="field">
+            <%= f.label :email %><br />
+            <%= f.text_field :email%>
+        </div>
+
+        <div class="field">
+            <%= f.label :celular %><br />
+            <%= f.number_field :celular %>
+        </div>
+
+        <div class="field">
+            <%= f.label :fijo %><br />
+            <%= f.number_field :fijo %>
+        </div>
+
+        <div class="field">
+            <%= f.label :organizacion %><br />
+            <%= f.text_field :organizacion%>
+        </div>
+
+        <div class="actions">
+            <%= f.submit "Guardar", class: "ui primary button" %>
+        </div>
+
+        <% end %>
+    </div>
+</div>
+
+<%= javascript_include_tag "validate/contact" %>
