@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources  :zones, :activities, :trees, :collections, :detail_incomes, :administration, :resource_activities, :resource_activities_trees
 
-  resources  :members, :charges, :general_meetings, :meetings, :meeting_members, :diaries, :contacts
+  resources  :members, :charges, :general_meetings, :meetings, :meeting_members, :diaries, :contacts, :activity_contacts
 
   resources :income_summary, controller: "reports/income_summary"
 

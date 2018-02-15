@@ -42,6 +42,12 @@
                          <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Ver recursos" data-inverted=""
                          data-position="right left"><i class="large browser icon"></i></div>'),
                           :controller=>"resource_activities", :action=>"index", :activity_id=>activity.id %>
+                          <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Añadir contacto" data-inverted=""
+                          data-position="right left"><i class="large address book outline icon"></i></div>'),
+                           new_activity_contact_path(:activity_id=>activity.id) %>
+                          <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Ver contactos" data-inverted=""
+                          data-position="right left"><i class="large browser icon"></i></div>'),
+                           :controller=>"activity_contacts", :action=>"index", :activity_id=>activity.id %>
 
                     </td>
                 </tr>

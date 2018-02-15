@@ -1,0 +1,23 @@
+<div class="ui raised very padded text container segment">
+    <%= link_to "Atras", :controller=>"activities", :action=>"index" %>
+    <h2 class="ui header">Agregar contacto</h2>
+    <div class="ui form">
+        <%= form_for(@activity_contact) do |f| %>
+
+        <%= f.hidden_field :activity_id, :value=>@activity_id %>
+
+        <div class="field">
+            <%= f.label :contacto %><br />
+            <%= f.select :contact_id, options_from_collection_for_select(Contact.all, :id, :nombre),
+            :include_blank => 'Seleccionar Contacto' %>
+        </div>
+
+        <div class="actions">
+            <%= f.submit "Guardar", class: "ui primary button" %>
+        </div>
+
+        <% end %>
+    </div>
+</div>
+
+<%= javascript_include_tag "validate/activity_contact" %>

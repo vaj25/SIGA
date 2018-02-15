@@ -21,7 +21,7 @@
             <%= f.label :descripción %><br />
             <%= f.text_area :descripcion %>
         </div>
-        
+
         <div class="field">
             <%= f.label :fecha_inicio %><br />
             <%= f.date_field :fecha_inicio%>
@@ -34,7 +34,7 @@
 
         <div class="field">
             <%= f.label :zona %><br />
-            <%= f.select :zone_id, options_from_collection_for_select(Zone.all, :id, :nombre),
+            <%= f.select :zone_id, options_from_collection_for_select(Zone.all, :id, :nombre,@activity.zone_id ),
                 :include_blank => 'Seleccionar Zona' %>
         </div>
 

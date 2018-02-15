@@ -1,0 +1,44 @@
+<div class="ui container">
+
+    <%= link_to "Atras", :controller=>"activities", :action=>"index" %>
+
+    <table class="ui celled padded table">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Celular</th>
+                <th>Telefono</th>
+                <th>Correo electrónico</th>
+                <th>Organización</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% @activity_contacts.each do |activity_contact| %>
+
+                  <tr>
+                    <td><%= activity_contact.id %></td>
+                    <td><%= activity_contact.contact.nombre %></td>
+                    <td><%= activity_contact.contact.celular %></td>
+                    <td><%= activity_contact.contact.fijo %></td>
+                    <td><%= activity_contact.contact.email %></td>
+                    <td><%= activity_contact.contact.organizacion %></td>
+                    <td>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Editar" data-inverted=""
+                        data-position="right left" data-offset="50"><i class="large edit icon"></i></div>'),
+                         edit_activity_contact_path(activity_contact) %>
+                        <%= link_to raw('<div class="ui mini circular icon button" data-tooltip="Eliminar" data-inverted=""
+                        data-position="right left"><i class="large erase icon"></i></div>'),
+                         activity_contact_path(activity_contact, :activity_id=>activity_contact.activity_id), method: :delete %>
+                          </td>
+                </tr>
+
+            <% end %>
+
+        </tbody>
+    </table>
+
+
+</div>

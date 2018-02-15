@@ -16,4 +16,5 @@ Rails.application.config.assets.precompile += %w( validate/zone.js validate/acti
                                                   validate/tree.js validate/detail_incomes.js validate/reports/income_summary.js
                                                   validate/reports/adquisition_tree.js validate/member.js validate/charge.js
                                                   validate/general_meeting.js validate/meeting.js validate/meeting_member.js
-                                                  validate/diary.js validate/resource_activity_tree validate/contact.js)
+                                                  validate/diary.js validate/resource_activity_tree validate/contact.js
+                                                  validate/activity_contact.js)

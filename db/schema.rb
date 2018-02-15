@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180212034839) do
+ActiveRecord::Schema.define(version: 20180215212322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20180212034839) do
     t.datetime "updated_at", null: false
     t.bigint "zone_id"
     t.index ["zone_id"], name: "index_activities_on_zone_id"
+  end
+
+  create_table "activity_contacts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "contact_id"
+    t.bigint "activity_id"
+    t.index ["activity_id"], name: "index_activity_contacts_on_activity_id"
+    t.index ["contact_id"], name: "index_activity_contacts_on_contact_id"
   end
 
   create_table "charges", force: :cascade do |t|
@@ -181,6 +190,8 @@ ActiveRecord::Schema.define(version: 20180212034839) do
   end
 
   add_foreign_key "activities", "zones"
+  add_foreign_key "activity_contacts", "activities"
+  add_foreign_key "activity_contacts", "contacts"
   add_foreign_key "collections", "activities"
   add_foreign_key "detail_incomes", "trees"
   add_foreign_key "diaries", "meetings"
